@@ -35,10 +35,10 @@ var MEASURE_LINE_DEFINE string = "stroke:black;stroke-width:1"
 
 func drawLine(canvas *svg.SVG) {
 	s := NewScore(Cordinate{200, 200}, 20)
-	l1 := s.addNewLine(5)
-	m1 := l1.addNewMeasure(8)
-	m2 := l1.addNewMeasure(8)
-	m3 := l1.addNewMeasure(8)
+	l1 := s.addNewLine(5, false)
+	m1 := l1.addNewMeasure(8, "")
+	m2 := l1.addNewMeasure(8, "")
+	m3 := l1.addNewMeasure(8, "")
 	m1.Draw(canvas)
 	m2.Draw(canvas)
 	m3.Draw(canvas)
@@ -61,10 +61,10 @@ func drawLine(canvas *svg.SVG) {
 	Fingering{Measure: m1, Fret: 12, Strings: 4, Beat: 8}.Draw(canvas)
 	Fingering{Measure: m1, Fret: 12, Strings: 5, Beat: 8}.Draw(canvas)
 
-	l2 := s.addNewLine(6)
-	m4 := l2.addNewMeasure(6)
-	m5 := l2.addNewMeasure(6)
-	m6 := l2.addNewMeasure(6)
+	l2 := s.addNewLine(6, true)
+	m4 := l2.addNewMeasure(6, "break")
+	m5 := l2.addNewMeasure(6, "柔らかめの音で弾く")
+	m6 := l2.addNewMeasure(6, "")
 
 	m4.Draw(canvas)
 	m5.Draw(canvas)
@@ -94,8 +94,8 @@ func NewScore(b Cordinate, g int) Score {
 	return Score{Base: b, EndY: b.Y, Lines: []Line{}, Gap: g}
 }
 
-func (s *Score) addNewLine(strings int) Line {
-	l := NewLine(Cordinate{s.Base.X, s.EndY}, strings)
+func (s *Score) addNewLine(strings int, with_text bool) Line {
+	l := NewLine(Cordinate{s.Base.X, s.EndY}, strings, with_text)
 	s.Lines = append(s.Lines, l)
 	s.EndY = s.EndY + l.Height + s.Gap
 
@@ -109,26 +109,42 @@ type Line struct {
 	Measures []Measure
 	Height   int
 	Strings  int
+	WithText bool
 }
 
-func NewLine(b Cordinate, s int) Line {
+var MEASURE_TEXT_HEIGHT int = 10
+
+func NewLine(b Cordinate, s int, with_text bool) Line {
 	h := (s - 1) * SPACE
-	return Line{Base: b, EndX: b.X, Measures: []Measure{}, Strings: s, Height: h}
+	if with_text {
+
+		h = h + MEASURE_TEXT_HEIGHT
+	}
+	return Line{Base: b, EndX: b.X, Measures: []Measure{}, Strings: s, Height: h, WithText: with_text}
 }
 
-func (l *Line) addNewMeasure(beat int) Measure {
-	m := Measure{Base: Cordinate{l.EndX, l.Base.Y}, Strings: l.Strings, Beat: beat}
+func (l *Line) addNewMeasure(beat int, text string) Measure {
+	y := l.Base.Y
+
+	if l.WithText {
+		y = y + MEASURE_TEXT_HEIGHT
+	}
+
+	m := Measure{Base: Cordinate{l.EndX, y}, Strings: l.Strings, Beat: beat, Text: text, withText: l.WithText}
 	l.Measures = append(l.Measures, m)
 	l.EndX = l.EndX + m.Width()
+	fmt.Println(m.Base.Y)
 
 	return m
 }
 
 // 小節
 type Measure struct {
-	Base    Cordinate // 小節の左上を0点とする
-	Strings int       // 弦の数
-	Beat    int       // 拍数
+	Base     Cordinate // 小節の左上を0点とする
+	Strings  int       // 弦の数
+	Beat     int       // 拍数
+	Text     string    // 小節ごとのメモ
+	withText bool
 }
 
 func (m Measure) Width() int {
@@ -139,6 +155,12 @@ func (m Measure) Draw(c *svg.SVG) error {
 	x1 := m.Base.X
 	x2 := m.Base.X + m.Width()
 
+	// テキストの描画
+	if m.withText {
+		c.Text(x1, m.Base.Y-MEASURE_TEXT_HEIGHT, m.Text)
+	}
+
+	// 譜面の描画
 	for i := 0; i < m.Strings; i++ {
 		y, err := m.XthStringY(i + 1)
 		if err != nil {
@@ -153,6 +175,7 @@ func (m Measure) XthStringY(xth int) (int, error) {
 	if xth > m.Strings {
 		return 0, fmt.Errorf("xthが弦の数より多い")
 	}
+
 	return m.Base.Y + (xth-1)*SPACE, nil
 }
 
