@@ -1,14 +1,14 @@
-package main
+package tabsvg_test
 
 import (
 	"os"
+	"testing"
 
 	svg "github.com/ajstarks/svgo"
-	"github.com/tbml/parse"
 	"github.com/tbml/tabsvg"
 )
 
-func main() {
+func TestTabsvg(t *testing.T) {
 	width := 1000
 	height := 1000
 
@@ -22,25 +22,6 @@ func main() {
 	canvas.Start(width, height)
 	defer canvas.End()
 
-	// タイトル
-	// canvas.Text(10, 20, "My Original Music Score", "font-size:14px;fill:black")
-
-	// 楽譜を描画
-	// drawLine(canvas)
-
-	bytes, err := os.ReadFile("tab.yaml")
-	if err != nil {
-		panic(err)
-	}
-	_ = parse.ParseYaml(bytes)
-
-}
-
-var SPACE int = 10
-var NOTE_WIDTH int = 20
-var MEASURE_LINE_DEFINE string = "stroke:#bbb;stroke-width:1"
-
-func drawLine(canvas *svg.SVG) {
 	s := tabsvg.NewScore(tabsvg.Cordinate{X: 200, Y: 200}, 20)
 	l1 := s.AddNewLine(5, false)
 	m1 := l1.AddNewMeasure(8, "")

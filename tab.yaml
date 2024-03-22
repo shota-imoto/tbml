@@ -1,2 +1,52 @@
-- hoge
-  - 0 1 2 3
+score:
+  cordinate: 100,100
+  gap: 20
+  lines:
+    - strings: 5
+      with_text: true
+      measures:
+        - beat: 8
+          Text: ソロ
+          fingering:
+            - b1s3/2h3
+            - b2s2/0
+            - b3s1/0
+            - b4s5/0
+            - b5s2/0
+            - b7s1/0
+            - b7s5/0
+        - beat: 8
+          Text: ""
+          fingering:
+            - b1s3/2s4
+            - b2s2/0
+            - b3s5/0
+            - b4s1/0
+            - b5s3/3p2
+            - b6s2/0
+            - b7s3/0
+            - b8s1/0
+    - strings: 5
+      with_text: true
+      measures:
+        - beat: 8
+          Text: ソロ
+          fingering:
+            - b1s3/2h3
+            - b2s2/0
+            - b3s1/0
+            - b4s5/0
+            - b5s2/0
+            - b7s1/0
+            - b7s5/0
+        - beat: 8
+          Text: ""
+          fingering:
+            - b1s3/2s4
+            - b2s2/0
+            - b3s5/0
+            - b4s1/0
+            - b5s3/3p2
+            - b6s2/0
+            - b7s3/0
+            - b8s1/0

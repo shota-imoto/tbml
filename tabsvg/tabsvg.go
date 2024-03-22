@@ -24,7 +24,6 @@ type Score struct {
 }
 
 func NewScore(b Cordinate, gap int) Score {
-	fmt.Println("tabsvg package")
 	return Score{Base: b, EndY: b.Y, Lines: []Line{}, Gap: gap}
 }
 
