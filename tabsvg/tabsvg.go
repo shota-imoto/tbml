@@ -19,20 +19,20 @@ type Cordinate struct {
 type Score struct {
 	Base  Cordinate
 	EndY  int
-	Lines []Line
+	Lines []*Line
 	Gap   int
 }
 
 func NewScore(b Cordinate, gap int) Score {
-	return Score{Base: b, EndY: b.Y, Lines: []Line{}, Gap: gap}
+	return Score{Base: b, EndY: b.Y, Lines: []*Line{}, Gap: gap}
 }
 
-func (s *Score) AddNewLine(strings int, with_text bool) Line {
+func (s *Score) AddNewLine(strings int, with_text bool) *Line {
 	l := NewLine(Cordinate{s.Base.X, s.EndY}, strings, with_text)
-	s.Lines = append(s.Lines, l)
+	s.Lines = append(s.Lines, &l)
 	s.EndY = s.EndY + l.Height + s.Gap
 
-	return l
+	return &l
 }
 
 // 横方向にMeasureを並べたもの

@@ -27,12 +27,15 @@ func main() {
 
 	// 楽譜を描画
 	// drawLine(canvas)
+	c := parse.ParseConfig("tab.yaml")
+	s, _ := c.Build()
 
-	bytes, err := os.ReadFile("tab.yaml")
-	if err != nil {
-		panic(err)
+	for _, l := range s.Lines {
+
+		for _, m := range l.Measures {
+			m.Draw(canvas)
+		}
 	}
-	_ = parse.ParseYaml(bytes)
 
 }
 
