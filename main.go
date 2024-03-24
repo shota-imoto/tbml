@@ -4,7 +4,6 @@ import (
 	"os"
 
 	svg "github.com/ajstarks/svgo"
-	"github.com/tbml/parse"
 	"github.com/tbml/tabsvg"
 )
 
@@ -26,16 +25,16 @@ func main() {
 	// canvas.Text(10, 20, "My Original Music Score", "font-size:14px;fill:black")
 
 	// 楽譜を描画
-	// drawLine(canvas)
-	c := parse.ParseConfig("tab.yaml")
-	s, _ := c.Build()
+	drawLine(canvas)
+	// c := parse.ParseConfig("tab.yaml")
+	// s, _ := c.Build()
 
-	for _, l := range s.Lines {
+	// for _, l := range s.Lines {
 
-		for _, m := range l.Measures {
-			m.Draw(canvas)
-		}
-	}
+	// 	for _, m := range l.Measures {
+	// 		m.Draw(canvas)
+	// 	}
+	// }
 
 }
 
@@ -59,24 +58,20 @@ func drawLine(canvas *svg.SVG) {
 
 	f1, _ := m1.AddFingering(2, 3, 1)
 	f1.Draw(canvas)
-	f2, _ := m1.AddFingering(3, 3, 2)
-	f2.Draw(canvas)
+	t := f1.AddLegatoTechnique(3, 1, "h")
+	t.Draw(canvas)
 
-	tabsvg.Technique{Start: f1, End: f2, Text: "h"}.Draw(canvas)
-
-	f3, _ := m1.AddFingering(0, 2, 2)
+	f3, _ := m1.AddFingering(0, 2, 1)
 	f3.Draw(canvas)
-	f4, _ := m1.AddFingering(0, 5, 3)
+	f4, _ := m1.AddFingering(0, 5, 1)
 	f4.Draw(canvas)
-	f5, _ := m1.AddFingering(0, 1, 4)
+	f5, _ := m1.AddFingering(0, 1, 1)
 	f5.Draw(canvas)
 
-	f6, _ := m2.AddFingering(3, 2, 1)
+	f6, _ := m2.AddFingering(3, 2, 2)
 	f6.Draw(canvas)
-	// f6.DrawCenter(canvas)
-	f7, _ := m2.AddFingering(8, 2, 3)
-	f7.Draw(canvas)
-	tabsvg.Technique{Start: f6, End: f7, Text: "s"}.Draw(canvas)
+	t2 := f6.AddLegatoTechnique(8, 2, "s")
+	t2.Draw(canvas)
 
 	l2 := s.AddNewLine(6, true)
 	m4 := l2.AddNewMeasure(6, "break")

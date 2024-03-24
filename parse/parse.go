@@ -34,7 +34,7 @@ func (c Config) Build() (tabsvg.Score, error) {
 	}
 	s := tabsvg.NewScore(cordinate, c.Score.Gap)
 
-	for i, l := range c.Score.Lines {
+	for _, l := range c.Score.Lines {
 
 		new_line := s.AddNewLine(l.Strings, l.WithText)
 

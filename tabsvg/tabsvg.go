@@ -72,11 +72,20 @@ func (l *Line) AddNewMeasure(beat int, text string) Measure {
 
 // 小節
 type Measure struct {
-	Base     Cordinate // 小節の左上を0点とする
-	Strings  int       // 弦の数
-	Beat     int       // 拍数
-	Text     string    // 小節ごとのメモ
-	withText bool
+	Base       Cordinate // 小節の左上を0点とする
+	Strings    int       // 弦の数
+	Beat       int       // 拍数
+	Text       string    // 小節ごとのメモ
+	withText   bool
+	Fingerings []*Fingering
+}
+
+func (m Measure) SumLength() int {
+	l := 0
+	for _, f := range m.Fingerings {
+		l += f.Length
+	}
+	return l
 }
 
 func (m Measure) Width() int {
@@ -113,17 +122,19 @@ func (m Measure) XthStringY(xth int) (int, error) {
 
 var FINGERING_CORRECTION_Y int = 5
 
-func (m *Measure) AddFingering(fret, strings, beat int) (Fingering, error) {
+func (m *Measure) AddFingering(fret, strings, length int) (*Fingering, error) {
 
-	x := m.Base.X + (beat-1)*NOTE_WIDTH
+	x := m.Base.X + m.SumLength()*NOTE_WIDTH
 
 	y, err := m.XthStringY(strings)
 	if err != nil {
-		return Fingering{}, err
+		return &Fingering{}, err
 	}
 	center_x := x + (NOTE_WIDTH / 2)
 	center_y := y
-	return Fingering{Center: Cordinate{center_x, center_y}, CorrectionY: FINGERING_CORRECTION_Y, Fret: fret, Strings: strings}, nil
+	f := Fingering{Center: Cordinate{center_x, center_y}, CorrectionY: FINGERING_CORRECTION_Y, Length: length, Fret: fret, Strings: strings}
+	m.Fingerings = append(m.Fingerings, &f)
+	return &f, nil
 }
 
 type MeasureBorder struct {
@@ -144,17 +155,18 @@ func (b MeasureBorder) DrawStart(c *svg.SVG) error {
 
 // 運指。小節に基づいて描画位置が決まる
 type Fingering struct {
-	Center Cordinate
-	Fret   int // フレット数
+	Center    Cordinate
+	Fret      int // フレット数
+	Length    int // 音長
+	Technique []TechniqueInterface
 
 	// 縦方向の補正。
 	// svgoのText関数はCordinate.Yを底辺として描画するため補正がないと弦の上にフレット番号が乗って表示されてしまう
 	// Fingering.Centerを参照して位置が決まる要素が存在するため、あらかじめCenter.Yに加えるのではなくDraw時に補正する
 	CorrectionY int
 
-	// 以下は、初期化の際にCenterが格納される想定なので正直いらない
+	// 初期化の際にCenterが格納される想定なのでStringsは正直いらない
 	Strings int // 何弦。
-	Beat    int // 何拍目。
 }
 
 var FINGERING_TEXT_DEFINE string = "text-anchor:middle"
@@ -168,28 +180,41 @@ func (f Fingering) DrawCenter(c *svg.SVG) {
 	c.Circle(f.Center.X, f.Center.Y, 2)
 }
 
-type Technique struct {
-	Start Fingering
-	End   Fingering
-	Text  string
+func (f *Fingering) AddLegatoTechnique(fret, length int, text string) *LegatoTechnique {
+	// Legatoの元の音の中央座標に幅を加えるためNOTE_WIDTH/2を減ずる必要はない
+	after_x := f.Center.X + f.Length*NOTE_WIDTH
+
+	after := Fingering{Center: Cordinate{X: after_x, Y: f.Center.Y}, Fret: fret, Strings: f.Strings, Length: length, CorrectionY: FINGERING_CORRECTION_Y, Technique: []TechniqueInterface{}}
+
+	x := (f.Center.X + after_x) / 2
+	d := after_x - f.Center.X
+	t := LegatoTechnique{Center: Cordinate{X: x, Y: f.Center.Y}, Distance: d, AfterNote: after, Text: text}
+	f.Technique = append(f.Technique, &t)
+	return &t
+}
+
+type TechniqueInterface interface {
+	Draw(*svg.SVG)
+}
+
+type LegatoTechnique struct {
+	// Legato先とLegato元の中間地点
+	Center    Cordinate
+	Distance  int
+	AfterNote Fingering
+	Text      string
 }
 
 var TECHNIQUE_LINE_DEFINE string = "stroke:#444;stroke-width:1.2"
 
-func (t Technique) Draw(c *svg.SVG) error {
-	x := (t.Start.Center.X + t.End.Center.X) / 2
-	if t.Start.Center.Y != t.End.Center.Y {
-		// Center計算時の小数点以下の扱いによってはバグるかも
-		return fmt.Errorf("Technique.Draw is failed: 別の弦なのでおかしい")
-	}
-	y := t.Start.Center.Y + SPACE
-
-	c.Text(x, y, t.Text, FINGERING_TEXT_DEFINE)
+func (t LegatoTechnique) Draw(c *svg.SVG) {
+	text_y := t.Center.Y + SPACE
+	c.Text(t.Center.X, text_y, t.Text, FINGERING_TEXT_DEFINE)
 
 	// start_xとend_xの÷3は補正値。NOTE_WIDTHが極端な値になると文字列と被ったり、文字列から離れすぎたりする
-	start_x := t.Start.Center.X + NOTE_WIDTH/3
-	end_x := t.End.Center.X - NOTE_WIDTH/3
+	start_x := t.Center.X - t.Distance/2 + NOTE_WIDTH/3
+	end_x := t.Center.X + t.Distance/2 - NOTE_WIDTH/3
+	c.Line(start_x, t.Center.Y, end_x, t.Center.Y, TECHNIQUE_LINE_DEFINE)
 
-	c.Line(start_x, t.Start.Center.Y, end_x, t.End.Center.Y, TECHNIQUE_LINE_DEFINE)
-	return nil
+	t.AfterNote.Draw(c)
 }
