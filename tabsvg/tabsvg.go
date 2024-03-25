@@ -77,15 +77,12 @@ type Measure struct {
 	Beat       int       // 拍数
 	Text       string    // 小節ごとのメモ
 	withText   bool
+	sumLength  int
 	Fingerings []*Fingering
 }
 
 func (m Measure) SumLength() int {
-	l := 0
-	for _, f := range m.Fingerings {
-		l += f.Length
-	}
-	return l
+	return m.sumLength
 }
 
 func (m Measure) Width() int {
@@ -122,7 +119,16 @@ func (m Measure) XthStringY(xth int) (int, error) {
 
 var FINGERING_CORRECTION_Y int = 5
 
-func (m *Measure) AddFingering(fret, strings, length int) (*Fingering, error) {
+type FingeringInput struct {
+	Fret    string
+	Strings int
+}
+
+func (m *Measure) AddWhiteSpace(length int) {
+	m.sumLength += length
+}
+
+func (m *Measure) AddFingering(fret string, strings, length int) (*Fingering, error) {
 
 	x := m.Base.X + m.SumLength()*NOTE_WIDTH
 
@@ -132,9 +138,29 @@ func (m *Measure) AddFingering(fret, strings, length int) (*Fingering, error) {
 	}
 	center_x := x + (NOTE_WIDTH / 2)
 	center_y := y
+
 	f := Fingering{Center: Cordinate{center_x, center_y}, CorrectionY: FINGERING_CORRECTION_Y, Length: length, Fret: fret, Strings: strings}
 	m.Fingerings = append(m.Fingerings, &f)
+	m.sumLength += length
 	return &f, nil
+}
+
+func (m *Measure) AddMultiFingering(length int, inputs ...FingeringInput) ([]*Fingering, error) {
+	fingerings := []*Fingering{}
+	x := m.Base.X + m.SumLength()*NOTE_WIDTH
+	for _, input := range inputs {
+		y, err := m.XthStringY(input.Strings)
+		if err != nil {
+			return []*Fingering{}, err
+		}
+		center_x := x + (NOTE_WIDTH / 2)
+		f := Fingering{Center: Cordinate{center_x, y}, CorrectionY: FINGERING_CORRECTION_Y, Length: length, Fret: input.Fret, Strings: input.Strings}
+		m.Fingerings = (append(m.Fingerings, &f))
+		fingerings = append(fingerings, &f)
+	}
+	m.sumLength += length
+
+	return fingerings, nil
 }
 
 type MeasureBorder struct {
@@ -156,8 +182,8 @@ func (b MeasureBorder) DrawStart(c *svg.SVG) error {
 // 運指。小節に基づいて描画位置が決まる
 type Fingering struct {
 	Center    Cordinate
-	Fret      int // フレット数
-	Length    int // 音長
+	Fret      string // フレット数
+	Length    int    // 音長
 	Technique []TechniqueInterface
 
 	// 縦方向の補正。
@@ -180,7 +206,7 @@ func (f Fingering) DrawCenter(c *svg.SVG) {
 	c.Circle(f.Center.X, f.Center.Y, 2)
 }
 
-func (f *Fingering) AddLegatoTechnique(fret, length int, text string) *LegatoTechnique {
+func (f *Fingering) AddLegatoTechnique(fret string, length int, text string) *LegatoTechnique {
 	// Legatoの元の音の中央座標に幅を加えるためNOTE_WIDTH/2を減ずる必要はない
 	after_x := f.Center.X + f.Length*NOTE_WIDTH
 

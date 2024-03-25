@@ -56,22 +56,30 @@ func drawLine(canvas *svg.SVG) {
 	tabsvg.MeasureBorder{Measure: m2}.DrawStart(canvas)
 	tabsvg.MeasureBorder{Measure: m3}.DrawStart(canvas)
 
-	f1, _ := m1.AddFingering(2, 3, 1)
+	f1, _ := m1.AddFingering("2", 3, 1)
 	f1.Draw(canvas)
-	t := f1.AddLegatoTechnique(3, 1, "h")
+	t := f1.AddLegatoTechnique("3", 1, "h")
 	t.Draw(canvas)
 
-	f3, _ := m1.AddFingering(0, 2, 1)
+	f3, _ := m1.AddFingering("0", 2, 1)
 	f3.Draw(canvas)
-	f4, _ := m1.AddFingering(0, 5, 1)
+	f4, _ := m1.AddFingering("0", 5, 1)
 	f4.Draw(canvas)
-	f5, _ := m1.AddFingering(0, 1, 1)
+	f5, _ := m1.AddFingering("0", 1, 1)
 	f5.Draw(canvas)
 
-	f6, _ := m2.AddFingering(3, 2, 2)
+	f6, _ := m2.AddFingering("3", 2, 2)
 	f6.Draw(canvas)
-	t2 := f6.AddLegatoTechnique(8, 2, "s")
+	t2 := f6.AddLegatoTechnique("8", 2, "s")
 	t2.Draw(canvas)
+	m2.AddWhiteSpace(2)
+
+	fs, _ := m2.AddMultiFingering(2, tabsvg.FingeringInput{Fret: "0", Strings: 1}, tabsvg.FingeringInput{Fret: "0", Strings: 5})
+	for _, f := range fs {
+		f.Draw(canvas)
+	}
+	f7, _ := m2.AddFingering("0", 3, 1)
+	f7.Draw(canvas)
 
 	l2 := s.AddNewLine(6, true)
 	m4 := l2.AddNewMeasure(6, "break")
