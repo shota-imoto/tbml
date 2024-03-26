@@ -120,8 +120,32 @@ func (m Measure) XthStringY(xth int) (int, error) {
 var FINGERING_CORRECTION_Y int = 5
 
 type FingeringInput struct {
-	Fret    string
-	Strings int
+	Fret       string
+	Strings    int
+	Techniques []AddLegatoTechniqueInput
+}
+
+func (m *Measure) AddFingerings(length int, inputs ...FingeringInput) ([]*Fingering, error) {
+	fingerings := []*Fingering{}
+	x := m.Base.X + m.SumLength()*NOTE_WIDTH
+	for _, input := range inputs {
+		y, err := m.XthStringY(input.Strings)
+		if err != nil {
+			return []*Fingering{}, err
+		}
+		center_x := x + (NOTE_WIDTH / 2)
+		f := Fingering{Center: Cordinate{center_x, y}, CorrectionY: FINGERING_CORRECTION_Y, Length: length, Fret: input.Fret, Strings: input.Strings}
+		for _, tech_input := range input.Techniques {
+			tech := f.AddLegatoTechnique(AddLegatoTechniqueInput{Fret: tech_input.Fret, Length: length, Text: tech_input.Text})
+			f.Technique = append(f.Technique, tech)
+		}
+
+		m.Fingerings = (append(m.Fingerings, &f))
+		fingerings = append(fingerings, &f)
+	}
+	m.sumLength += length
+
+	return fingerings, nil
 }
 
 func (m *Measure) AddWhiteSpace(length int) {
@@ -206,15 +230,21 @@ func (f Fingering) DrawCenter(c *svg.SVG) {
 	c.Circle(f.Center.X, f.Center.Y, 2)
 }
 
-func (f *Fingering) AddLegatoTechnique(fret string, length int, text string) *LegatoTechnique {
+type AddLegatoTechniqueInput struct {
+	Fret   string
+	Length int
+	Text   string
+}
+
+func (f *Fingering) AddLegatoTechnique(input AddLegatoTechniqueInput) *LegatoTechnique {
 	// Legatoの元の音の中央座標に幅を加えるためNOTE_WIDTH/2を減ずる必要はない
 	after_x := f.Center.X + f.Length*NOTE_WIDTH
 
-	after := Fingering{Center: Cordinate{X: after_x, Y: f.Center.Y}, Fret: fret, Strings: f.Strings, Length: length, CorrectionY: FINGERING_CORRECTION_Y, Technique: []TechniqueInterface{}}
+	after := Fingering{Center: Cordinate{X: after_x, Y: f.Center.Y}, Fret: input.Fret, Strings: f.Strings, Length: input.Length, CorrectionY: FINGERING_CORRECTION_Y, Technique: []TechniqueInterface{}}
 
 	x := (f.Center.X + after_x) / 2
 	d := after_x - f.Center.X
-	t := LegatoTechnique{Center: Cordinate{X: x, Y: f.Center.Y}, Distance: d, AfterNote: after, Text: text}
+	t := LegatoTechnique{Center: Cordinate{X: x, Y: f.Center.Y}, Distance: d, AfterNote: after, Text: input.Text}
 	f.Technique = append(f.Technique, &t)
 	return &t
 }

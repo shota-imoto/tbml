@@ -8,45 +8,44 @@ score:
         - beat: 8
           Text: ソロ
           fingering:
-            - b1s3/2h3
-            - b2s2/0
-            - b3s1/0
-            - b4s5/0
-            - b5s2/0
-            - b7s1/0
-            - b7s5/0
+            # フレット.弦/フレット.弦 長さ
+            - 0.3 2
+            - 0.1/0.5 2
+            - 2s4.3
+            - 0.2
+            - 0.5
+            - 0.1
         - beat: 8
           Text: ""
           fingering:
-            - b1s3/2s4
-            - b2s2/0
-            - b3s5/0
-            - b4s1/0
-            - b5s3/3p2
-            - b6s2/0
-            - b7s3/0
-            - b8s1/0
+            - 3p2.3 2
+            - 3s5.4
+            - 0.3
+            - 0.1
+            - 0.5
+            - 0.3
+            - 0.1
     - strings: 5
       with_text: true
       measures:
         - beat: 8
           Text: ソロ
           fingering:
-            - b1s3/2h3
-            - b2s2/0
-            - b3s1/0
-            - b4s5/0
-            - b5s2/0
-            - b7s1/0
-            - b7s5/0
-        - beat: 8
-          Text: ""
-          fingering:
-            - b1s3/2s4
-            - b2s2/0
-            - b3s5/0
-            - b4s1/0
-            - b5s3/3p2
-            - b6s2/0
-            - b7s3/0
-            - b8s1/0
+            - 0.3 2
+            - 0.5
+            - 0.3
+            - 0.1
+            - 0.3
+            - 2.4
+            - 0.1
+        # - beat: 8
+        #   Text: ""
+        #   fingering:
+        #     - b1s3/2s4
+        #     - b2s2/0
+        #     - b3s5/0
+        #     - b4s1/0
+        #     - b5s3/3p2
+        #     - b6s2/0
+        #     - b7s3/0
+        #     - b8s1/0

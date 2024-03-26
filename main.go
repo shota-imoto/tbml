@@ -58,7 +58,7 @@ func drawLine(canvas *svg.SVG) {
 
 	f1, _ := m1.AddFingering("2", 3, 1)
 	f1.Draw(canvas)
-	t := f1.AddLegatoTechnique("3", 1, "h")
+	t := f1.AddLegatoTechnique(tabsvg.AddLegatoTechniqueInput{Fret: "3", Length: 1, Text: "h"})
 	t.Draw(canvas)
 
 	f3, _ := m1.AddFingering("0", 2, 1)
@@ -70,7 +70,7 @@ func drawLine(canvas *svg.SVG) {
 
 	f6, _ := m2.AddFingering("3", 2, 2)
 	f6.Draw(canvas)
-	t2 := f6.AddLegatoTechnique("8", 2, "s")
+	t2 := f6.AddLegatoTechnique(tabsvg.AddLegatoTechniqueInput{Fret: "8", Length: 2, Text: "s"})
 	t2.Draw(canvas)
 	m2.AddWhiteSpace(2)
 
@@ -85,6 +85,20 @@ func drawLine(canvas *svg.SVG) {
 	m4 := l2.AddNewMeasure(6, "break")
 	m5 := l2.AddNewMeasure(6, "柔らかめの音で弾く")
 	m6 := l2.AddNewMeasure(6, "")
+
+	fs2, _ := m4.AddFingerings(1, tabsvg.FingeringInput{Fret: "0", Strings: 1, Techniques: []tabsvg.AddLegatoTechniqueInput{}}, tabsvg.FingeringInput{Fret: "2", Strings: 3, Techniques: []tabsvg.AddLegatoTechniqueInput{{Fret: "4", Length: 2, Text: "s"}}})
+
+	for _, f := range fs2 {
+		f.Draw(canvas)
+		for _, t := range f.Technique {
+			t.Draw(canvas)
+		}
+	}
+
+	fs3, _ := m4.AddFingerings(1, tabsvg.FingeringInput{Fret: "0", Strings: 5, Techniques: []tabsvg.AddLegatoTechniqueInput{}})
+	fs3[0].Draw(canvas)
+	fs4, _ := m4.AddFingerings(1, tabsvg.FingeringInput{Fret: "0", Strings: 2, Techniques: []tabsvg.AddLegatoTechniqueInput{}})
+	fs4[0].Draw(canvas)
 
 	m4.Draw(canvas)
 	m5.Draw(canvas)

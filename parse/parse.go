@@ -11,6 +11,8 @@ import (
 	"gopkg.in/yaml.v3"
 )
 
+type Fingering string
+
 type Config struct {
 	Score struct {
 		Cordinate string
@@ -21,7 +23,7 @@ type Config struct {
 			Measures []struct {
 				Beat      int
 				Text      string
-				Fingering []string
+				Fingering []Fingering
 			}
 		}
 	}
@@ -47,6 +49,85 @@ func (c Config) Build() (tabsvg.Score, error) {
 	}
 	return s, nil
 }
+
+// TODO: パッケージから参照できないようにする
+func ParseFingering(f Fingering) ([]tabsvg.FingeringInput, int, error) {
+	split := strings.Split(string(f), " ")
+	if len(split) > 1 {
+		l, err := strconv.Atoi(split[1])
+
+		if err != nil {
+			return []tabsvg.FingeringInput{}, 0, fmt.Errorf("ParseFingering is failed: parsed error %v", err)
+		}
+		inputs, err := parseFingeringStr(split[0], l)
+
+		if err != nil {
+			return inputs, l, fmt.Errorf("ParseFingering is failed: parsed error %v", err)
+		}
+
+		return inputs, l, nil
+
+	} else if len(split) == 1 {
+		l := 1
+		inputs, err := parseFingeringStr(split[0], l)
+
+		if err != nil {
+			return []tabsvg.FingeringInput{}, l, fmt.Errorf("ParseFingering is failed: parsed error %v", err)
+		}
+
+		return inputs, 1, nil
+	} else {
+		return []tabsvg.FingeringInput{}, 0, fmt.Errorf("parseFingering: split error %v", split)
+	}
+}
+
+func parseFingeringStr(strs string, length int) ([]tabsvg.FingeringInput, error) {
+	f_str_ary := strings.Split(strs, "/")
+	fis := []tabsvg.FingeringInput{}
+
+	for _, f_str := range f_str_ary {
+		f_split := strings.Split(f_str, ".")
+		fret := f_split[0]
+		strings, ok := strconv.Atoi(f_split[1])
+		if ok != nil {
+			return []tabsvg.FingeringInput{}, fmt.Errorf("parseFingeringStr is failed: parse失敗")
+		}
+
+		fis = append(fis, buildFingering(fret, strings, length))
+	}
+	return fis, nil
+}
+
+var LEGATO_TECHNIQUE = []string{"s", "h", "p"}
+
+// 2s4とか3p2とかをparseしてFingeringInputを組み立てる。sは弦数
+func buildFingering(fret_str string, s int, length int) tabsvg.FingeringInput {
+	before := ""
+	text := ""
+	after := ""
+	for _, t := range LEGATO_TECHNIQUE {
+		split := strings.Split(fret_str, t)
+		if len(split) == 2 {
+			before = split[0]
+			after = split[1]
+			text = t
+			break
+		}
+	}
+	if before != "" {
+		return tabsvg.FingeringInput{
+			Strings:    s,
+			Fret:       before,
+			Techniques: []tabsvg.AddLegatoTechniqueInput{{Fret: after, Length: length, Text: text}}}
+	}
+
+	return tabsvg.FingeringInput{
+		Strings: s,
+		Fret:    fret_str,
+	}
+}
+
+func (f Fingering) AddToMeasure(tabsvg.Measure) {}
 
 func parseCordinate(str string) (tabsvg.Cordinate, error) {
 	separeted := strings.Split(str, ",")
