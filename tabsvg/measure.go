@@ -54,26 +54,10 @@ func (m Measure) XthStringY(xth int) (int, error) {
 	return m.Base.Y + (xth-1)*SPACE, nil
 }
 
-func (m *Measure) AddFingering(fret string, strings, length int) (*Fingering, error) {
-
-	x := m.Base.X + m.SumLength()*NOTE_WIDTH
-
-	y, err := m.XthStringY(strings)
-	if err != nil {
-		return &Fingering{}, err
-	}
-	center_x := x + (NOTE_WIDTH / 2)
-	center_y := y
-
-	f := Fingering{Center: Cordinate{center_x, center_y}, CorrectionY: FINGERING_CORRECTION_Y, Length: length, Fret: fret, Strings: strings}
-	m.Fingerings = append(m.Fingerings, &f)
-	m.sumLength += length
-	return &f, nil
-}
-
 // 重音を表現する場合に２要素以上のinputsを受け取る
 func (m *Measure) AddFingerings(length int, inputs ...FingeringInput) ([]*Fingering, error) {
 	fingerings := []*Fingering{}
+
 	for _, input := range inputs {
 		b := builder(*m, input, length)
 		f, err := b.build()
@@ -83,6 +67,8 @@ func (m *Measure) AddFingerings(length int, inputs ...FingeringInput) ([]*Finger
 		m.Fingerings = (append(m.Fingerings, f))
 		fingerings = append(fingerings, f)
 	}
+
+	// 重音なので一回だけしかlengthを加えない。forループの外で加える
 	m.sumLength += length
 
 	return fingerings, nil
@@ -94,10 +80,13 @@ type FingeringInput struct {
 	Techniques []AddLegatoTechniqueInput
 }
 
+type FingeringBuilderI interface {
+	build() (*Fingering, error)
+}
+
 func builder(m Measure, input FingeringInput, length int) FingeringBuilderI {
 	if input.Fret != "x" {
 		return FingeringBuilder{input: input, length: length, measure: m}
-
 	}
 
 	if input.Strings != "x" {
@@ -107,16 +96,14 @@ func builder(m Measure, input FingeringInput, length int) FingeringBuilderI {
 	}
 }
 
-type FingeringBuilderI interface {
-	build() (*Fingering, error)
-}
-
+// 空白スペース用のbuilder
 type WhiteSpaceBuilder struct{}
 
 func (b WhiteSpaceBuilder) build() (*Fingering, error) {
 	return &Fingering{}, nil
 }
 
+// 休符用のbuilder
 type RestBuilder struct {
 	measure Measure
 	input   FingeringInput
@@ -128,18 +115,19 @@ func (b RestBuilder) build() (*Fingering, error) {
 
 	s, err := strconv.Atoi(b.input.Strings)
 	if err != nil {
-		return &Fingering{}, fmt.Errorf("AddFingerings is failed: %v", err)
+		return &Fingering{}, fmt.Errorf("RestBuilder.build is failed: %v", err)
 	}
 
 	y, err := b.measure.XthStringY(s)
 	if err != nil {
-		return &Fingering{}, fmt.Errorf("AddFingerings is failed: %v", err)
+		return &Fingering{}, fmt.Errorf("RestBuilder.build is failed: %v", err)
 	}
 	center_x := x + (NOTE_WIDTH / 2)
 
 	return &Fingering{Center: Cordinate{center_x, y}, CorrectionY: FINGERING_CORRECTION_Y, Length: b.length, Fret: b.input.Fret, Strings: s}, nil
 }
 
+// 一般的な音符のbuilder
 type FingeringBuilder struct {
 	measure Measure
 	input   FingeringInput
@@ -150,12 +138,12 @@ func (b FingeringBuilder) build() (*Fingering, error) {
 	s, err := strconv.Atoi(b.input.Strings)
 
 	if err != nil {
-		return &Fingering{}, fmt.Errorf("AddFingerings is failed: %v", err)
+		return &Fingering{}, fmt.Errorf("FingeringBuilder.build is failed: %v", err)
 	}
 
 	y, err := b.measure.XthStringY(s)
 	if err != nil {
-		return &Fingering{}, fmt.Errorf("AddFingerings is failed: %v", err)
+		return &Fingering{}, fmt.Errorf("FingeringBuilder.build: %v", err)
 	}
 	x := b.measure.Base.X + b.measure.SumLength()*NOTE_WIDTH
 	center_x := x + (NOTE_WIDTH / 2)

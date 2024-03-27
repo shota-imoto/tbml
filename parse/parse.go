@@ -52,7 +52,6 @@ func (c Config) Build() (*tabsvg.Score, error) {
 
 		}
 	}
-	fmt.Println(s)
 	return &s, nil
 }
 

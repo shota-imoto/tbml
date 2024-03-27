@@ -35,26 +35,6 @@ func TestTabsvg(t *testing.T) {
 	tabsvg.MeasureBorder{Measure: *m2}.DrawStart(canvas)
 	tabsvg.MeasureBorder{Measure: *m3}.DrawStart(canvas)
 
-	f1, _ := m1.AddFingering("2", 3, 1)
-	f1.Draw(canvas)
-	t1 := f1.AddLegatoTechnique(tabsvg.AddLegatoTechniqueInput{Fret: "3", Length: 1, Text: "h"})
-	t1.Draw(canvas)
-
-	f3, _ := m1.AddFingering("0", 2, 1)
-	f3.Draw(canvas)
-	f4, _ := m1.AddFingering("0", 5, 1)
-	f4.Draw(canvas)
-	f5, _ := m1.AddFingering("0", 1, 1)
-	f5.Draw(canvas)
-
-	f6, _ := m2.AddFingering("3", 2, 2)
-	f6.Draw(canvas)
-	t2 := f6.AddLegatoTechnique(tabsvg.AddLegatoTechniqueInput{Fret: "8", Length: 2, Text: "s"})
-	t2.Draw(canvas)
-
-	f7, _ := m2.AddFingering("0", 3, 1)
-	f7.Draw(canvas)
-
 	l2 := s.AddNewLine(6, true)
 	m4 := l2.AddNewMeasure(6, "break")
 	m5 := l2.AddNewMeasure(6, "柔らかめの音で弾く")
