@@ -31,9 +31,9 @@ func TestTabsvg(t *testing.T) {
 	m1.Draw(canvas)
 	m2.Draw(canvas)
 	m3.Draw(canvas)
-	tabsvg.MeasureBorder{Measure: m1}.DrawStart(canvas)
-	tabsvg.MeasureBorder{Measure: m2}.DrawStart(canvas)
-	tabsvg.MeasureBorder{Measure: m3}.DrawStart(canvas)
+	tabsvg.MeasureBorder{Measure: *m1}.DrawStart(canvas)
+	tabsvg.MeasureBorder{Measure: *m2}.DrawStart(canvas)
+	tabsvg.MeasureBorder{Measure: *m3}.DrawStart(canvas)
 
 	f1, _ := m1.AddFingering("2", 3, 1)
 	f1.Draw(canvas)
@@ -51,12 +51,7 @@ func TestTabsvg(t *testing.T) {
 	f6.Draw(canvas)
 	t2 := f6.AddLegatoTechnique(tabsvg.AddLegatoTechniqueInput{Fret: "8", Length: 2, Text: "s"})
 	t2.Draw(canvas)
-	m2.AddWhiteSpace(2)
 
-	fs, _ := m2.AddMultiFingering(2, tabsvg.FingeringInput{Fret: "0", Strings: 1}, tabsvg.FingeringInput{Fret: "0", Strings: 5})
-	for _, f := range fs {
-		f.Draw(canvas)
-	}
 	f7, _ := m2.AddFingering("0", 3, 1)
 	f7.Draw(canvas)
 
@@ -65,7 +60,7 @@ func TestTabsvg(t *testing.T) {
 	m5 := l2.AddNewMeasure(6, "柔らかめの音で弾く")
 	m6 := l2.AddNewMeasure(6, "")
 
-	fs2, _ := m4.AddFingerings(1, tabsvg.FingeringInput{Fret: "0", Strings: 1, Techniques: []tabsvg.AddLegatoTechniqueInput{}}, tabsvg.FingeringInput{Fret: "2", Strings: 3, Techniques: []tabsvg.AddLegatoTechniqueInput{{Fret: "4", Length: 2, Text: "s"}}})
+	fs2, _ := m4.AddFingerings(1, tabsvg.FingeringInput{Fret: "0", Strings: "1", Techniques: []tabsvg.AddLegatoTechniqueInput{}}, tabsvg.FingeringInput{Fret: "2", Strings: "3", Techniques: []tabsvg.AddLegatoTechniqueInput{{Fret: "4", Length: 2, Text: "s"}}})
 
 	for _, f := range fs2 {
 		f.Draw(canvas)
@@ -74,16 +69,15 @@ func TestTabsvg(t *testing.T) {
 		}
 	}
 
-	fs3, _ := m4.AddFingerings(1, tabsvg.FingeringInput{Fret: "0", Strings: 5, Techniques: []tabsvg.AddLegatoTechniqueInput{}})
+	fs3, _ := m4.AddFingerings(1, tabsvg.FingeringInput{Fret: "0", Strings: "5", Techniques: []tabsvg.AddLegatoTechniqueInput{}})
 	fs3[0].Draw(canvas)
-	fs4, _ := m4.AddFingerings(1, tabsvg.FingeringInput{Fret: "0", Strings: 2, Techniques: []tabsvg.AddLegatoTechniqueInput{}})
+	fs4, _ := m4.AddFingerings(1, tabsvg.FingeringInput{Fret: "0", Strings: "2", Techniques: []tabsvg.AddLegatoTechniqueInput{}})
 	fs4[0].Draw(canvas)
 
 	m4.Draw(canvas)
 	m5.Draw(canvas)
 	m6.Draw(canvas)
-	tabsvg.MeasureBorder{Measure: m4}.DrawStart(canvas)
-	tabsvg.MeasureBorder{Measure: m5}.DrawStart(canvas)
-	tabsvg.MeasureBorder{Measure: m6}.DrawStart(canvas)
-
+	tabsvg.MeasureBorder{Measure: *m4}.DrawStart(canvas)
+	tabsvg.MeasureBorder{Measure: *m5}.DrawStart(canvas)
+	tabsvg.MeasureBorder{Measure: *m6}.DrawStart(canvas)
 }

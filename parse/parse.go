@@ -23,16 +23,16 @@ type Config struct {
 			Measures []struct {
 				Beat      int
 				Text      string
-				Fingering []Fingering
+				Fingering []string
 			}
 		}
 	}
 }
 
-func (c Config) Build() (tabsvg.Score, error) {
+func (c Config) Build() (*tabsvg.Score, error) {
 	cordinate, err := parseCordinate(c.Score.Cordinate)
 	if err != nil {
-		return tabsvg.Score{}, fmt.Errorf("Build is failed: %v", err)
+		return &tabsvg.Score{}, fmt.Errorf("Build is failed: %v", err)
 	}
 	s := tabsvg.NewScore(cordinate, c.Score.Gap)
 
@@ -43,16 +43,22 @@ func (c Config) Build() (tabsvg.Score, error) {
 		// TODO: ネストが深すぎる。
 		// たぶんループは見やすいよう切り出して、パフォーマンスは非同期化で回避するのが良さそう
 		for _, m := range l.Measures {
-			_ = new_line.AddNewMeasure(m.Beat, m.Text)
+			new_measure := new_line.AddNewMeasure(m.Beat, m.Text)
+			for _, f := range m.Fingering {
+				inputs, length, _ := ParseFingering(f)
+
+				_, _ = new_measure.AddFingerings(length, inputs...)
+			}
 
 		}
 	}
-	return s, nil
+	fmt.Println(s)
+	return &s, nil
 }
 
 // TODO: パッケージから参照できないようにする
-func ParseFingering(f Fingering) ([]tabsvg.FingeringInput, int, error) {
-	split := strings.Split(string(f), " ")
+func ParseFingering(f string) ([]tabsvg.FingeringInput, int, error) {
+	split := strings.Split(f, " ")
 	if len(split) > 1 {
 		l, err := strconv.Atoi(split[1])
 
@@ -88,10 +94,7 @@ func parseFingeringStr(strs string, length int) ([]tabsvg.FingeringInput, error)
 	for _, f_str := range f_str_ary {
 		f_split := strings.Split(f_str, ".")
 		fret := f_split[0]
-		strings, ok := strconv.Atoi(f_split[1])
-		if ok != nil {
-			return []tabsvg.FingeringInput{}, fmt.Errorf("parseFingeringStr is failed: parse失敗")
-		}
+		strings := f_split[1]
 
 		fis = append(fis, buildFingering(fret, strings, length))
 	}
@@ -101,7 +104,7 @@ func parseFingeringStr(strs string, length int) ([]tabsvg.FingeringInput, error)
 var LEGATO_TECHNIQUE = []string{"s", "h", "p"}
 
 // 2s4とか3p2とかをparseしてFingeringInputを組み立てる。sは弦数
-func buildFingering(fret_str string, s int, length int) tabsvg.FingeringInput {
+func buildFingering(fret_str string, s string, length int) tabsvg.FingeringInput {
 	before := ""
 	text := ""
 	after := ""

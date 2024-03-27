@@ -16,37 +16,37 @@ func TestParseFingering(t *testing.T) {
 		{
 			str: "2s4.3 2",
 			fingering_input: []tabsvg.FingeringInput{
-				{Strings: 3, Fret: "2", Techniques: []tabsvg.AddLegatoTechniqueInput{{Fret: "4", Length: 2, Text: "s"}}},
+				{Strings: "3", Fret: "2", Techniques: []tabsvg.AddLegatoTechniqueInput{{Fret: "4", Length: 2, Text: "s"}}},
 			},
 			length: 2,
 		},
 		{
 			str: "5.1/0.5 2",
 			fingering_input: []tabsvg.FingeringInput{
-				{Strings: 1, Fret: "5"},
-				{Strings: 5, Fret: "0"},
+				{Strings: "1", Fret: "5"},
+				{Strings: "5", Fret: "0"},
 			},
 			length: 2,
 		},
 		{
 			str: "0.1/2s4.3 2",
 			fingering_input: []tabsvg.FingeringInput{
-				{Strings: 1, Fret: "0"},
-				{Strings: 3, Fret: "2", Techniques: []tabsvg.AddLegatoTechniqueInput{{Fret: "4", Length: 2, Text: "s"}}},
+				{Strings: "1", Fret: "0"},
+				{Strings: "3", Fret: "2", Techniques: []tabsvg.AddLegatoTechniqueInput{{Fret: "4", Length: 2, Text: "s"}}},
 			},
 			length: 2,
 		},
 		{
 			str: "0.3",
 			fingering_input: []tabsvg.FingeringInput{
-				{Strings: 3, Fret: "0"},
+				{Strings: "3", Fret: "0"},
 			},
 			length: 1,
 		},
 	}
 
 	for _, test := range tests {
-		fs, l, err := ParseFingering(Fingering(test.str))
+		fs, l, err := ParseFingering(test.str)
 
 		if err != nil {
 			t.Errorf("error is raised: %v", err)
