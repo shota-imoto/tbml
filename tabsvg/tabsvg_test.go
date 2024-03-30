@@ -68,7 +68,19 @@ func TestTabsvg(t *testing.T) {
 	m4.Draw(c)
 	m5.Draw(c)
 	m6.Draw(c)
-	tabsvg.MeasureBorder{Measure: *m4}.DrawStart(c)
-	tabsvg.MeasureBorder{Measure: *m5}.DrawStart(c)
-	tabsvg.MeasureBorder{Measure: *m6}.DrawStart(c)
+	b.Draw(c)
+
+	b5, err := m4.AddBorder(tabsvg.StartPosition{})
+
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	b5.Draw(c)
+	b6, _ := m5.AddBorder(tabsvg.StartPosition{})
+	b6.Draw(c)
+	b7, _ := m6.AddBorder(tabsvg.StartPosition{})
+	b7.Draw(c)
+	b8, _ := m6.AddBorder(tabsvg.EndPosition{})
+	b8.Draw(c)
 }
