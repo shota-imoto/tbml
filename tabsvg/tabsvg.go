@@ -70,18 +70,12 @@ func (l *Line) AddNewMeasure(beat int, text string) *Measure {
 
 type MeasureBorder struct {
 	Measure Measure
+	Top     Cordinate
+	Bottom  Cordinate
 }
 
-func (b MeasureBorder) DrawStart(c *svg.SVG) error {
-	x := b.Measure.Base.X
-	y1 := b.Measure.Base.Y
-	y2, err := b.Measure.XthStringY(b.Measure.Strings)
-	if err != nil {
-		return err
-	}
-
-	c.Line(x, y1, x, y2, MEASURE_LINE_DEFINE)
-	return nil
+func (b MeasureBorder) Draw(c *svg.SVG) {
+	c.Line(b.Top.X, b.Top.Y, b.Bottom.X, b.Bottom.Y, MEASURE_LINE_DEFINE)
 }
 
 type TechniqueInterface interface {

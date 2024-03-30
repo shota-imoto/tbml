@@ -16,6 +16,7 @@ type Measure struct {
 	withText   bool
 	sumLength  int
 	Fingerings []*Fingering
+	Borders    []*MeasureBorder
 }
 
 func (m Measure) SumLength() int {
@@ -153,4 +154,33 @@ func (b FingeringBuilder) build() (*Fingering, error) {
 		f.Technique = append(f.Technique, tech)
 	}
 	return &f, nil
+}
+
+type BorderPositionI interface {
+	xPosition(Measure) int
+}
+
+type StartPosition struct{}
+
+func (p StartPosition) xPosition(m Measure) int {
+	return m.Base.X
+}
+
+type EndPosition struct{}
+
+func (p EndPosition) xPosition(m Measure) int {
+	return m.Base.X + m.Width()
+}
+
+func (m *Measure) AddBorder(position BorderPositionI) (*MeasureBorder, error) {
+	x := position.xPosition(*m)
+	y1 := m.Base.Y
+	y2, err := m.XthStringY(m.Strings)
+	if err != nil {
+		return &MeasureBorder{}, fmt.Errorf("AddBorder is failed: %v", err)
+	}
+
+	b := &MeasureBorder{Measure: *m, Top: Cordinate{X: x, Y: y1}, Bottom: Cordinate{X: x, Y: y2}}
+	m.Borders = append(m.Borders, b)
+	return b, nil
 }

@@ -12,28 +12,39 @@ func TestTabsvg(t *testing.T) {
 	width := 1000
 	height := 1000
 
-	file, err := os.Create("tab.svg")
+	file, err := os.Create("tab_test.svg")
 	if err != nil {
 		panic(err)
 	}
 	defer file.Close()
-	canvas := svg.New(file)
+	c := svg.New(file)
 
-	canvas.Start(width, height)
-	defer canvas.End()
+	c.Start(width, height)
+	defer c.End()
 
-	s := tabsvg.NewScore(tabsvg.Cordinate{X: 200, Y: 200}, 20)
+	s := tabsvg.NewScore(tabsvg.Cordinate{X: 100, Y: 200}, 20)
 	l1 := s.AddNewLine(5, false)
 	m1 := l1.AddNewMeasure(8, "")
 	m2 := l1.AddNewMeasure(8, "")
 	m3 := l1.AddNewMeasure(8, "")
 
-	m1.Draw(canvas)
-	m2.Draw(canvas)
-	m3.Draw(canvas)
-	tabsvg.MeasureBorder{Measure: *m1}.DrawStart(canvas)
-	tabsvg.MeasureBorder{Measure: *m2}.DrawStart(canvas)
-	tabsvg.MeasureBorder{Measure: *m3}.DrawStart(canvas)
+	b, err := m1.AddBorder(tabsvg.StartPosition{})
+
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	b.Draw(c)
+	b2, _ := m2.AddBorder(tabsvg.StartPosition{})
+	b2.Draw(c)
+	b3, _ := m3.AddBorder(tabsvg.StartPosition{})
+	b3.Draw(c)
+	b4, _ := m3.AddBorder(tabsvg.EndPosition{})
+	b4.Draw(c)
+
+	m1.Draw(c)
+	m2.Draw(c)
+	m3.Draw(c)
 
 	l2 := s.AddNewLine(6, true)
 	m4 := l2.AddNewMeasure(6, "break")
@@ -43,21 +54,21 @@ func TestTabsvg(t *testing.T) {
 	fs2, _ := m4.AddFingerings(1, tabsvg.FingeringInput{Fret: "0", Strings: "1", Techniques: []tabsvg.AddLegatoTechniqueInput{}}, tabsvg.FingeringInput{Fret: "2", Strings: "3", Techniques: []tabsvg.AddLegatoTechniqueInput{{Fret: "4", Length: 2, Text: "s"}}})
 
 	for _, f := range fs2 {
-		f.Draw(canvas)
+		f.Draw(c)
 		for _, t := range f.Technique {
-			t.Draw(canvas)
+			t.Draw(c)
 		}
 	}
 
 	fs3, _ := m4.AddFingerings(1, tabsvg.FingeringInput{Fret: "0", Strings: "5", Techniques: []tabsvg.AddLegatoTechniqueInput{}})
-	fs3[0].Draw(canvas)
+	fs3[0].Draw(c)
 	fs4, _ := m4.AddFingerings(1, tabsvg.FingeringInput{Fret: "0", Strings: "2", Techniques: []tabsvg.AddLegatoTechniqueInput{}})
-	fs4[0].Draw(canvas)
+	fs4[0].Draw(c)
 
-	m4.Draw(canvas)
-	m5.Draw(canvas)
-	m6.Draw(canvas)
-	tabsvg.MeasureBorder{Measure: *m4}.DrawStart(canvas)
-	tabsvg.MeasureBorder{Measure: *m5}.DrawStart(canvas)
-	tabsvg.MeasureBorder{Measure: *m6}.DrawStart(canvas)
+	m4.Draw(c)
+	m5.Draw(c)
+	m6.Draw(c)
+	tabsvg.MeasureBorder{Measure: *m4}.DrawStart(c)
+	tabsvg.MeasureBorder{Measure: *m5}.DrawStart(c)
+	tabsvg.MeasureBorder{Measure: *m6}.DrawStart(c)
 }
