@@ -19,6 +19,9 @@ type Config struct {
 		Key   string
 		BPM   int
 	}
+	General struct {
+		NoteWidth int `yaml:"note_width"`
+	}
 	Score struct {
 		Cordinate string
 		Gap       int
@@ -47,7 +50,7 @@ func (c Config) Build() (*tabsvg.Page, error) {
 	if err != nil {
 		return &tabsvg.Page{}, fmt.Errorf("Build is failed: %v", err)
 	}
-	p := tabsvg.NewPage(cordinate, DEFAULT_PAGE_GAP)
+	p := tabsvg.NewPage(cordinate, DEFAULT_PAGE_GAP, tabsvg.NoteWidth(c.General.NoteWidth))
 
 	p.SetHeader(c.Header.Title, c.Header.Key, c.Header.BPM)
 	s := p.SetScore(c.Score.Gap)

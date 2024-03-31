@@ -17,6 +17,7 @@ type Measure struct {
 	sumLength  int
 	Fingerings []*Fingering
 	Borders    []*MeasureBorder
+	NoteWidth  NoteWidth
 }
 
 func (m Measure) SumLength() int {
@@ -24,7 +25,7 @@ func (m Measure) SumLength() int {
 }
 
 func (m Measure) Width() int {
-	return NOTE_WIDTH * m.Beat
+	return int(m.NoteWidth) * m.Beat
 }
 
 func (m Measure) Draw(c *svg.SVG) error {
@@ -112,7 +113,7 @@ type RestBuilder struct {
 }
 
 func (b RestBuilder) build() (*Fingering, error) {
-	x := b.measure.Base.X + b.measure.SumLength()*NOTE_WIDTH
+	x := b.measure.Base.X + b.measure.SumLength()*int(b.measure.NoteWidth)
 
 	s, err := strconv.Atoi(b.input.Strings)
 	if err != nil {
@@ -123,7 +124,7 @@ func (b RestBuilder) build() (*Fingering, error) {
 	if err != nil {
 		return &Fingering{}, fmt.Errorf("RestBuilder.build is failed: %v", err)
 	}
-	center_x := x + (NOTE_WIDTH / 2)
+	center_x := x + (int(b.measure.NoteWidth) / 2)
 
 	return &Fingering{Center: Cordinate{center_x, y}, CorrectionY: FINGERING_CORRECTION_Y, Length: b.length, Fret: b.input.Fret, Strings: s}, nil
 }
@@ -146,9 +147,9 @@ func (b FingeringBuilder) build() (*Fingering, error) {
 	if err != nil {
 		return &Fingering{}, fmt.Errorf("FingeringBuilder.build: %v", err)
 	}
-	x := b.measure.Base.X + b.measure.SumLength()*NOTE_WIDTH
-	center_x := x + (NOTE_WIDTH / 2)
-	f := Fingering{Center: Cordinate{center_x, y}, CorrectionY: FINGERING_CORRECTION_Y, Length: b.length, Fret: b.input.Fret, Strings: s}
+	x := b.measure.Base.X + b.measure.SumLength()*int(b.measure.NoteWidth)
+	center_x := x + (int(b.measure.NoteWidth) / 2)
+	f := Fingering{Center: Cordinate{center_x, y}, CorrectionY: FINGERING_CORRECTION_Y, Length: b.length, Fret: b.input.Fret, Strings: s, NoteWidth: b.measure.NoteWidth}
 	for _, tech_input := range b.input.Techniques {
 		tech := f.AddLegatoTechnique(AddLegatoTechniqueInput{Fret: tech_input.Fret, Length: b.length, Text: tech_input.Text})
 		f.Technique = append(f.Technique, tech)

@@ -20,6 +20,7 @@ type Fingering struct {
 
 	// 初期化の際にCenterが格納される想定なのでStringsは正直いらない
 	Strings int // 何弦。
+	NoteWidth
 }
 
 var FINGERING_TEXT_DEFINE string = "text-anchor:middle;font-size:10px"
@@ -42,14 +43,14 @@ type AddLegatoTechniqueInput struct {
 }
 
 func (f *Fingering) AddLegatoTechnique(input AddLegatoTechniqueInput) *LegatoTechnique {
-	// Legatoの元の音の中央座標に幅を加えるためNOTE_WIDTH/2を減ずる必要はない
-	after_x := f.Center.X + f.Length*NOTE_WIDTH
+	// Legatoの元の音の中央座標に幅を加えるためf.NoteWidth/2を減ずる必要はない
+	after_x := f.Center.X + f.Length*int(f.NoteWidth)
 
-	after := Fingering{Center: Cordinate{X: after_x, Y: f.Center.Y}, Fret: input.Fret, Strings: f.Strings, Length: input.Length, CorrectionY: FINGERING_CORRECTION_Y, Technique: []TechniqueInterface{}}
+	after := Fingering{Center: Cordinate{X: after_x, Y: f.Center.Y}, Fret: input.Fret, Strings: f.Strings, Length: input.Length, CorrectionY: FINGERING_CORRECTION_Y, Technique: []TechniqueInterface{}, NoteWidth: f.NoteWidth}
 
 	x := (f.Center.X + after_x) / 2
 	d := after_x - f.Center.X
-	t := LegatoTechnique{Center: Cordinate{X: x, Y: f.Center.Y}, Distance: d, AfterNote: after, Text: input.Text}
+	t := LegatoTechnique{Center: Cordinate{X: x, Y: f.Center.Y}, Distance: d, AfterNote: after, Text: input.Text, NoteWidth: f.NoteWidth}
 	f.Technique = append(f.Technique, &t)
 	return &t
 }

@@ -2,6 +2,8 @@ header:
   title: タイトル
   key: G
   bpm: 110
+general:
+  note_width: 30
 score:
   cordinate: 100,100
   gap: 20
