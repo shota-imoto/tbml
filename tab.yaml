@@ -7,6 +7,8 @@ score:
       measures:
         - beat: 8
           Text: ソロ
+          borders:
+            - start
           fingering:
             # フレット.弦 長さ
             - 0.3 2
@@ -19,6 +21,9 @@ score:
             - 0.1
         - beat: 8
           Text: ""
+          borders:
+            - start
+            - end
           fingering:
             - 3p2.3
             - x.x
@@ -33,6 +38,9 @@ score:
       measures:
         - beat: 8
           Text: ソロ
+          borders:
+            - start
+            - end
           fingering:
             - 0.3 2
             - 0.5

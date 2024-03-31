@@ -27,7 +27,11 @@ func main() {
 	// 楽譜を描画
 	// drawLine(canvas)
 	c := parse.ParseConfig("tab.yaml")
-	s, _ := c.Build()
+	s, err := c.Build()
+
+	if err != nil {
+		panic(err)
+	}
 
 	for _, l := range s.Lines {
 		for _, m := range l.Measures {
@@ -37,6 +41,10 @@ func main() {
 				for _, t := range f.Technique {
 					t.Draw(canvas)
 				}
+			}
+
+			for _, b := range m.Borders {
+				b.Draw(canvas)
 			}
 		}
 	}

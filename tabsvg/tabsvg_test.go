@@ -8,6 +8,7 @@ import (
 	"github.com/tbml/tabsvg"
 )
 
+// 目視の動作確認用のテストコード
 func TestTabsvg(t *testing.T) {
 	width := 1000
 	height := 1000

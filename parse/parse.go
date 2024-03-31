@@ -24,9 +24,15 @@ type Config struct {
 				Beat      int
 				Text      string
 				Fingering []string
+				Borders   []string
 			}
 		}
 	}
+}
+
+var PositionMap = map[string]tabsvg.BorderPositionI{
+	"start": tabsvg.StartPosition{},
+	"end":   tabsvg.EndPosition{},
 }
 
 func (c Config) Build() (*tabsvg.Score, error) {
@@ -43,11 +49,20 @@ func (c Config) Build() (*tabsvg.Score, error) {
 		// TODO: ネストが深すぎる。
 		// たぶんループは見やすいよう切り出して、パフォーマンスは非同期化で回避するのが良さそう
 		for _, m := range l.Measures {
+
 			new_measure := new_line.AddNewMeasure(m.Beat, m.Text)
 			for _, f := range m.Fingering {
 				inputs, length, _ := ParseFingering(f)
 
 				_, _ = new_measure.AddFingerings(length, inputs...)
+			}
+
+			for _, b := range m.Borders {
+				p := PositionMap[b]
+				if p == nil {
+					return &tabsvg.Score{}, fmt.Errorf("Build is failed: bordersの値が不正です。-> %s", b)
+				}
+				new_measure.AddBorder(p)
 			}
 
 		}
