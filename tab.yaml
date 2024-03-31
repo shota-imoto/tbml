@@ -6,7 +6,7 @@ score:
       with_text: true
       measures:
         - beat: 8
-          Text: ソロ
+          text: ソロ
           borders:
             - start
           fingering:
@@ -37,7 +37,7 @@ score:
       with_text: true
       measures:
         - beat: 8
-          Text: ソロ
+          text: ソロ2
           borders:
             - start
             - end

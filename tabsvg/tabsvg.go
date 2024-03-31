@@ -56,7 +56,6 @@ func NewLine(b Cordinate, s int, with_text bool) Line {
 
 func (l *Line) AddNewMeasure(beat int, text string) *Measure {
 	y := l.Base.Y
-
 	if l.WithText {
 		y = y + MEASURE_TEXT_HEIGHT
 	}
