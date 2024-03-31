@@ -1,19 +1,30 @@
 package main
 
 import (
+	"fmt"
 	"os"
 
 	svg "github.com/ajstarks/svgo"
+	"github.com/tbml/args"
 	"github.com/tbml/parse"
 )
 
 func main() {
+	a, err := args.Load()
+
+	if err != nil {
+		fmt.Println(err)
+		os.Exit(1)
+	}
+
+	out_path := a.OutPath()
 	width := 1000
 	height := 1000
 
-	file, err := os.Create("tab.svg")
+	file, err := os.Create(out_path)
 	if err != nil {
-		panic(err)
+		fmt.Println(err)
+		os.Exit(1)
 	}
 	defer file.Close()
 	c := svg.New(file)

@@ -176,7 +176,7 @@ func parseCordinate(str string) (tabsvg.Cordinate, error) {
 }
 
 func ParseConfig(filename string) Config {
-	bytes, err := os.ReadFile("tab.yaml")
+	bytes, err := os.ReadFile(filename)
 	if err != nil {
 		panic(err)
 	}
