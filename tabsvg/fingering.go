@@ -22,7 +22,7 @@ type Fingering struct {
 	Strings int // 何弦。
 }
 
-var FINGERING_TEXT_DEFINE string = "text-anchor:middle"
+var FINGERING_TEXT_DEFINE string = "text-anchor:middle;font-size:10px"
 
 func (f Fingering) Draw(c *svg.SVG) {
 	c.Text(f.Center.X, f.Center.Y+f.CorrectionY, fmt.Sprint(f.Fret), FINGERING_TEXT_DEFINE)

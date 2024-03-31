@@ -14,6 +14,11 @@ import (
 type Fingering string
 
 type Config struct {
+	Header struct {
+		Title string
+		Key   string
+		BPM   int
+	}
 	Score struct {
 		Cordinate string
 		Gap       int
@@ -35,13 +40,17 @@ var PositionMap = map[string]tabsvg.BorderPositionI{
 	"end":   tabsvg.EndPosition{},
 }
 
-func (c Config) Build() (*tabsvg.Score, error) {
+var DEFAULT_PAGE_GAP = 30
+
+func (c Config) Build() (*tabsvg.Page, error) {
 	cordinate, err := parseCordinate(c.Score.Cordinate)
 	if err != nil {
-		return &tabsvg.Score{}, fmt.Errorf("Build is failed: %v", err)
+		return &tabsvg.Page{}, fmt.Errorf("Build is failed: %v", err)
 	}
-	s := tabsvg.NewScore(cordinate, c.Score.Gap)
+	p := tabsvg.NewPage(cordinate, DEFAULT_PAGE_GAP)
 
+	p.SetHeader(c.Header.Title, c.Header.Key, c.Header.BPM)
+	s := p.SetScore(c.Score.Gap)
 	for _, l := range c.Score.Lines {
 
 		new_line := s.AddNewLine(l.Strings, l.WithText)
@@ -60,14 +69,14 @@ func (c Config) Build() (*tabsvg.Score, error) {
 			for _, b := range m.Borders {
 				p := PositionMap[b]
 				if p == nil {
-					return &tabsvg.Score{}, fmt.Errorf("Build is failed: bordersの値が不正です。-> %s", b)
+					return &tabsvg.Page{}, fmt.Errorf("Build is failed: bordersの値が不正です。-> %s", b)
 				}
 				new_measure.AddBorder(p)
 			}
 
 		}
 	}
-	return &s, nil
+	return &p, nil
 }
 
 // TODO: パッケージから参照できないようにする

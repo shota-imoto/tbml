@@ -16,41 +16,39 @@ func main() {
 		panic(err)
 	}
 	defer file.Close()
-	canvas := svg.New(file)
+	c := svg.New(file)
 
-	canvas.Start(width, height)
-	defer canvas.End()
+	c.Start(width, height)
+	defer c.End()
 
 	// タイトル
-	// canvas.Text(10, 20, "My Original Music Score", "font-size:14px;fill:black")
+	// c.Text(10, 20, "My Original Music Score", "font-size:14px;fill:black")
 
 	// 楽譜を描画
-	// drawLine(canvas)
-	c := parse.ParseConfig("tab.yaml")
-	s, err := c.Build()
+	// drawLine(c)
+	cfg := parse.ParseConfig("tab.yaml")
+	p, err := cfg.Build()
 
 	if err != nil {
 		panic(err)
 	}
-
-	for _, l := range s.Lines {
+	p.Header.Draw(c)
+	for _, l := range p.Score.Lines {
 		for _, m := range l.Measures {
-			m.Draw(canvas)
+			m.Draw(c)
 			for _, f := range m.Fingerings {
-				f.Draw(canvas)
+				f.Draw(c)
 				for _, t := range f.Technique {
-					t.Draw(canvas)
+					t.Draw(c)
 				}
 			}
 
 			for _, b := range m.Borders {
-				b.Draw(canvas)
+				b.Draw(c)
 			}
 		}
 	}
-
 }
 
 var SPACE int = 10
-var NOTE_WIDTH int = 20
 var MEASURE_LINE_DEFINE string = "stroke:#bbb;stroke-width:1"

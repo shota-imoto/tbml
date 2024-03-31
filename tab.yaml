@@ -1,3 +1,7 @@
+header:
+  title: タイトル
+  key: G
+  bpm: 110
 score:
   cordinate: 100,100
   gap: 20

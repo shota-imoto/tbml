@@ -1,6 +1,10 @@
 package tabsvg
 
 import (
+	"fmt"
+	"strconv"
+	"strings"
+
 	svg "github.com/ajstarks/svgo"
 )
 
@@ -11,6 +15,62 @@ var MEASURE_LINE_DEFINE string = "stroke:#bbb;stroke-width:1"
 type Cordinate struct {
 	X int
 	Y int
+}
+
+type Page struct {
+	Base   Cordinate
+	Gap    int
+	Header Header
+	Score  *Score
+}
+
+type PageOption struct {
+	PageGap  int
+	ScoreGap int
+}
+
+func NewPage(b Cordinate, gap int) Page {
+	return Page{Base: b, Gap: gap}
+}
+
+func (p *Page) SetHeader(title string, key string, bpm int) *Header {
+	h := Header{Base: p.Base, Title: title, Key: key, BPM: bpm}
+	p.Header = h
+	return &h
+}
+
+var HEADER_HEIGHT = 40
+
+func (p *Page) SetScore(gap int) *Score {
+	s := NewScore(Cordinate{X: p.Base.X, Y: p.Base.Y + HEADER_HEIGHT}, gap)
+	p.Score = &s
+	return &s
+}
+
+type Header struct {
+	Base  Cordinate
+	Title string
+	Key   string
+	BPM   int
+}
+
+var HEADER_FONT_DEFINE = "font-size:25;"
+var KEY_FONT_DEFINE = "font-size:12;"
+
+func (h Header) Draw(c *svg.SVG) {
+	c.Text(h.Base.X, h.Base.Y, h.Title, HEADER_FONT_DEFINE)
+
+	texts := make([]string, 0, 2)
+	if h.Key != "" {
+		texts = append(texts, fmt.Sprintf("key of %s", h.Key))
+	}
+
+	if h.BPM != 0 {
+		bpm := strconv.Itoa(h.BPM)
+		texts = append(texts, fmt.Sprintf("♪ = %s", bpm))
+	}
+
+	c.Text(h.Base.X, h.Base.Y+20, strings.Join(texts, ", "), KEY_FONT_DEFINE)
 }
 
 // 縦方向にLineを並べたものがScore
