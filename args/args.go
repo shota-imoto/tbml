@@ -13,7 +13,6 @@ type Args struct {
 
 func Load() (Args, error) {
 	args := os.Args
-	fmt.Println(args)
 	if len(args) < 1 {
 		return Args{}, fmt.Errorf("設定ファイルのパスを指定してください: %v", args)
 	}

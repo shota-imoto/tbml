@@ -32,12 +32,7 @@ func main() {
 	c.Start(width, height)
 	defer c.End()
 
-	// タイトル
-	// c.Text(10, 20, "My Original Music Score", "font-size:14px;fill:black")
-
-	// 楽譜を描画
-	// drawLine(c)
-	cfg := parse.ParseConfig("tab.yaml")
+	cfg := parse.ParseConfig(a.YamlPath)
 	p, err := cfg.Build()
 
 	if err != nil {
