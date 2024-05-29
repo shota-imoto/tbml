@@ -1,0 +1,191 @@
+header:
+  title: Country Road
+  key: A
+  # bpm: 92
+general:
+  note_width: 20
+score:
+  cordinate: 20,20
+  gap: 20
+  lines:
+    - strings: 5
+      with_text: true
+      measures:
+        - beat: 8
+          text: A Outro
+          borders:
+            - start
+          fingering:
+            - 4h5.4
+            - 0.3
+            - 0.2
+            - 0.1
+            - 4h5.4
+            - 0.3
+            - 0.2
+            - 0.1
+        - beat: 8
+          text: A
+          borders:
+            - start
+          fingering:
+            - 4h5.4
+            - 0.3
+            - 0.2
+            - 0.1
+            - 4h5.4
+            - 0.3
+            - 0.2
+            - 0.1
+        - beat: 8
+          text: E
+          borders:
+            - start
+          fingering:
+            - 4.4
+            - 2.3
+            - 0.2
+            - 4.1
+            - 4.4
+            - 2.3
+            - 0.2
+            - 4.1
+
+        - beat: 8
+          text: E
+          borders:
+            - start
+            - end
+          fingering:
+            - 4.4
+            - 2.3
+            - 0.2
+            - 5.1
+            - 0.5
+            - 2.3
+            - 4.1
+            - 0.5
+    - strings: 5
+      with_text: true
+      measures:
+        - beat: 8
+          text: F#m
+          borders:
+            - start
+          fingering:
+            - 0h2.4
+            - 0.3
+            - 0.2
+            - 0.1
+            - 2.4
+            - 0.3
+            - 0.2
+            - 0.1
+        - beat: 8
+          text: F#m
+          borders:
+            - start
+          fingering:
+            - 2s4.4
+            - 0.3
+            - 5.2
+            - 7.1
+            - 2s4.4
+            - 0.3
+            - 5.2
+            - 7.1
+        - beat: 8
+          text: D Fフォーム (適当にロール)
+          borders:
+            - start
+          fingering:
+            - x.3
+        - beat: 8
+          text: C Fフォーム+9th
+          borders:
+            - start
+            - end
+          fingering:
+            - x.3
+    - strings: 5
+      with_text: true
+      measures:
+        - beat: 8
+          text: D Dフォーム
+          borders:
+            - start
+          fingering:
+            - x.3
+        - beat: 8
+          text: A Dフォーム+9th
+          borders:
+            - start
+          fingering:
+            - x.3
+        - beat: 8
+          text: E barフォーム
+          borders:
+            - start
+            - end
+          fingering:
+            - 0.4
+            - 7.3
+            - 7.2
+            - 9.1
+            - 0.4
+            - 7.3
+            - 7.2
+            - 9.1
+        - beat: 8
+          text: E
+          borders:
+            - start
+            - end
+          fingering:
+            - 0.4
+            - 7.3
+            - 7.2
+            - 9.1
+            - 0.4
+            - 7.3
+            - 7.2
+            - 9.1
+    - strings: 5
+      with_text: true
+      measures:
+        - beat: 8
+          text: D barフォーム
+          borders:
+            - start
+          fingering:
+            - 5.4
+            - 5.3
+            - 5.2
+            - 7.1
+            - 5.4
+            - 5.3
+            - 5.2
+            - 5.1
+        - beat: 8
+          text: D barフォーム
+          borders:
+            - start
+          fingering:
+            - 5.4
+            - 5.3
+            - 5.2
+            - 7.1
+            - 5.4
+            - 5.2
+            - 5s4.3
+            - 3.2
+        - beat: 8
+          text: D barフォーム
+          borders:
+            - start
+            - end
+          fingering:
+            - 5.1/4.3 2
+            - x.3 2
+            - x.3 2
+            - x.3 2
