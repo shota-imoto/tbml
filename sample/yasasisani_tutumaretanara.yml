@@ -1,0 +1,356 @@
+header:
+  title: 優しさに包まれたなら
+  key: D
+  # bpm: 92
+general:
+  note_width: 20
+score:
+  cordinate: 20,20
+  gap: 30
+  lines:
+  # chorus part
+    - strings: 5
+      with_text: true
+      measures:
+        - beat: 8
+          text: Bm サビ入り
+          borders:
+            - start
+          fingering:
+            - 3s4.3
+            - 4.1
+            - 0.5
+            - 3.2
+            - 4.1
+            - 0.5
+            - 4.1
+            - 0.5
+        - beat: 8
+          text: Bm
+          borders:
+            - start
+          fingering:
+            - 4.3
+            - 4.1
+            - 0.5
+            - 3.2
+            - 4.1
+            - 0.5
+            - 4.1
+            - 0.5
+        - beat: 8
+          text: G
+          borders:
+            - start
+          fingering:
+            - 0.3
+            - 0.1
+            - 0.5
+            - 0.2
+            - 0.1
+            - 0.5
+            - 0.1
+            - 0.5
+        - beat: 8
+          text: G
+          borders:
+            - start
+            - end
+          fingering:
+            - 0.3
+            - 0.1
+            - 0.5
+            - 0.2
+            - 0.1
+            - 0.5
+            - 0.1
+            - 0.5
+  # Interude
+    - strings: 5
+      with_text: true
+      measures:
+        - beat: 8
+          text: D Interude
+          borders:
+            - start
+          fingering:
+            - 12.1/10.2 2
+            - 0.5
+            - 10.2
+            - 12.1
+            - 0.5
+            - 10.2
+            - 12.1
+        - beat: 8
+          text: D
+          borders:
+            - start
+          fingering:
+            - 0.5
+            - 12.1/10h12.2
+            - x.x
+            - 0.5
+            - 10.2
+            - 12.1
+            - 11s8.3
+            - 0.1
+        - beat: 8
+          text: Em7onD
+          borders:
+            - start
+          fingering:
+            - 8.3
+            - 0.1
+            - 0.5
+            - 7.3
+            - 0.1
+            - 0.5
+            - 7.3
+            - 0.1
+        - beat: 8
+          text: Em7onD
+          borders:
+            - start
+            - end
+          fingering:
+            - 0.5
+            - 7.3
+            - 0.1
+            - 0.5
+            - 0.1
+            - 7s11.3
+            - x.x
+            - 0.5
+    - strings: 5
+      with_text: true
+      measures:
+        - beat: 8
+          text: D
+          borders:
+            - start
+          fingering:
+            - 12.1/11.3 2
+            - 0.5
+            - 11.3
+            - 12.1
+            - 0.5
+            - 11.3
+            - 12.1
+        - beat: 8
+          text: D 7音目ダウン先適当
+          borders:
+            - start
+          fingering:
+            - 0.5
+            - 11.3
+            - 12.1
+            - 0.5
+            - 12.1/11.3 2
+            - 11s14.3
+            - 14.1
+        - beat: 8
+          text: D 1弦3連符も◎
+          borders:
+            - start
+          fingering:
+            - 14s7.1
+            - x.x
+            - 7s12.3
+            - 14.1
+            - 14s7.1
+            - x.x
+            - 7s11.2
+            - 12.1
+        - beat: 8
+          text: Em7onD 最後チョーク気味
+          borders:
+            - start
+            - end
+          fingering:
+            - 12.1 2
+            - 12s14.1
+            - x.x
+            - 14.1
+            - 12.1
+            - 14.2
+# サビ繰り返し前フレーズ
+    - strings: 5
+      with_text: true
+      measures:
+        - beat: 8
+          text: Em7onD repeat phrase
+          borders:
+            - start
+          fingering:
+            - 2.3
+            - 0.1
+            - 0.5
+            - 0.2
+            - 0.1
+            - 0.5
+            - 2h3.2
+            - 0.1
+        - beat: 8
+          text:
+          borders:
+            - start
+          fingering:
+            - 0.5
+            - 3s5.2
+            - 0.1
+            - 0.5
+            - 5s7.2
+            - x.x
+            - 7.1/0.5 2
+        - beat: 8
+          text: Em7onD
+          borders:
+            - start
+          fingering:
+            - 2.3
+            - 0.1
+            - 0.5
+            - 0.2
+            - 0.1
+            - 0.5
+            - 2h3.2
+            - 0.1
+        - beat: 8
+          text:
+          borders:
+            - start
+            - end
+          fingering:
+            - 0.5
+            - 3s5.2
+            - 0.1
+            - 0.5
+            - 5.2/7.1 2
+            - 6.2/8.1 2
+# 繰り返しサビ入り
+    - strings: 5
+      with_text: true
+      measures:
+        - beat: 8
+          text: Bm chorus repeat 頭だけ続きでコード鳴らして、サビのフレーズに戻る
+          borders:
+            - start
+            - end
+          fingering:
+            - 9s4.1/7s3.2
+            - x.x
+            - 0.5
+            - 3.2
+            - 4.1
+            - 0.5
+            - 4.1
+            - 0.5
+
+
+
+  # アウトロ
+    - strings: 5
+      with_text: true
+      measures:
+        - beat: 8
+          text: D outro
+          borders:
+            - start
+          fingering:
+            - 0.4 2
+            - 0.5
+            - 2.3
+            - 0.1
+            - 2.3
+            - 4.4
+            - 0.1
+        - beat: 8
+          text: D
+          borders:
+            - start
+          fingering:
+            - 0.4 2
+            - 3s5.2
+            - x.1
+            - 0.5
+            - 5.2
+            - 4.1
+            - 0.5
+        - beat: 8
+          text: G
+          borders:
+            - start
+          fingering:
+            - 4h5.1
+            - x.x
+            - 0.5
+            - 5.2
+            - 5.1
+            - 0.5
+            - 5.2
+            - 5.1
+        - beat: 8
+          text: G
+          borders:
+            - start
+            - end
+          fingering:
+            - 0.5
+            - 5.2
+            - 5.1
+            - 0.5
+            - 5.1 2
+            - 7.1 2
+    - strings: 5
+      with_text: true
+      measures:
+        - beat: 8
+          text: D
+          borders:
+            - start
+          fingering:
+            - 7s12.1
+            - x.x
+            - 0.5
+            - 10.2
+            - 12.1
+            - 0.5
+            - 10.2
+            - 12.1
+        - beat: 8
+          text: D
+          borders:
+            - start
+          fingering:
+            - 0.5
+            - 10.2
+            - 12.1
+            - 0.5
+            - 12.1 2
+            - 10.1/0.5 2
+        - beat: 8
+          text: G
+          borders:
+            - start
+          fingering:
+            - 9.1/8.2 2
+            - 0.5
+            - 8.2
+            - 9.1
+            - 8.2
+            - 0.5
+            - 8.2
+        - beat: 8
+          text: G
+          borders:
+            - start
+            - end
+          fingering:
+            - 9.1
+            - 8s10.2
+            - 0.5
+            - 11.1
+            - 10s15.2
+            - (0).1
+            - 15.2/0.5
+            - x.3

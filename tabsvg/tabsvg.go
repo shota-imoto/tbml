@@ -25,6 +25,7 @@ type Page struct {
 	Header    Header
 	Score     *Score
 	NoteWidth NoteWidth
+	size      PageSize
 }
 
 type PageOption struct {
@@ -32,8 +33,21 @@ type PageOption struct {
 	ScoreGap int
 }
 
-func NewPage(b Cordinate, gap int, note_width NoteWidth) Page {
-	return Page{Base: b, Gap: gap, NoteWidth: note_width}
+type PageSize struct {
+	Width  int
+	Height int
+}
+
+func NewPage(b Cordinate, gap int, note_width NoteWidth, size PageSize) Page {
+	return Page{Base: b, Gap: gap, NoteWidth: note_width, size: size}
+}
+
+func (p *Page) PageSize() (width, height int) {
+	if p.size.Height == 0 || p.size.Width == 0 {
+		// デフォルトサイズ
+		return 1000, 1000
+	}
+	return p.size.Width, p.size.Height
 }
 
 func (p *Page) SetHeader(title string, key string, bpm int) *Header {
