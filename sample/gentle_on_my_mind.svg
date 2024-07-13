@@ -922,62 +922,100 @@
 <text x="650" y="865" style="text-anchor:middle;font-size:10px" >0</text>
 <line x1="500" y1="840" x2="500" y2="880" style="stroke:#bbb;stroke-width:1" />
 <line x1="660" y1="840" x2="660" y2="880" style="stroke:#bbb;stroke-width:1" />
-<text x="20" y="900" >Dmネタ ↓の和音で音階ロール</text>
+<text x="20" y="900" >C</text>
 <line x1="20" y1="910" x2="180" y2="910" style="stroke:#bbb;stroke-width:1" />
 <line x1="20" y1="920" x2="180" y2="920" style="stroke:#bbb;stroke-width:1" />
 <line x1="20" y1="930" x2="180" y2="930" style="stroke:#bbb;stroke-width:1" />
 <line x1="20" y1="940" x2="180" y2="940" style="stroke:#bbb;stroke-width:1" />
 <line x1="20" y1="950" x2="180" y2="950" style="stroke:#bbb;stroke-width:1" />
-<text x="30" y="915" style="text-anchor:middle;font-size:10px" >17</text>
-<text x="30" y="925" style="text-anchor:middle;font-size:10px" >15</text>
-<text x="30" y="955" style="text-anchor:middle;font-size:10px" >14</text>
+<text x="30" y="935" style="text-anchor:middle;font-size:10px" >5</text>
+<text x="70" y="955" style="text-anchor:middle;font-size:10px" >0</text>
+<text x="90" y="915" style="text-anchor:middle;font-size:10px" >0</text>
+<text x="110" y="935" style="text-anchor:middle;font-size:10px" >5</text>
+<text x="130" y="955" style="text-anchor:middle;font-size:10px" >0</text>
+<text x="150" y="925" style="text-anchor:middle;font-size:10px" >4</text>
+<text x="160" y="930" style="text-anchor:middle;font-size:10px" >h</text>
+<line x1="156" y1="920" x2="164" y2="920" style="stroke:#444;stroke-width:1.2" />
+<text x="170" y="925" style="text-anchor:middle;font-size:10px" >5</text>
+<text x="160" y="930" style="text-anchor:middle;font-size:10px" >h</text>
+<line x1="156" y1="920" x2="164" y2="920" style="stroke:#444;stroke-width:1.2" />
+<text x="170" y="925" style="text-anchor:middle;font-size:10px" >5</text>
+<text x="170" y="915" style="text-anchor:middle;font-size:10px" >5</text>
 <line x1="20" y1="910" x2="20" y2="950" style="stroke:#bbb;stroke-width:1" />
-<text x="20" y="970" >Dm</text>
+<text x="180" y="900" >C</text>
+<line x1="180" y1="910" x2="340" y2="910" style="stroke:#bbb;stroke-width:1" />
+<line x1="180" y1="920" x2="340" y2="920" style="stroke:#bbb;stroke-width:1" />
+<line x1="180" y1="930" x2="340" y2="930" style="stroke:#bbb;stroke-width:1" />
+<line x1="180" y1="940" x2="340" y2="940" style="stroke:#bbb;stroke-width:1" />
+<line x1="180" y1="950" x2="340" y2="950" style="stroke:#bbb;stroke-width:1" />
+<text x="190" y="955" style="text-anchor:middle;font-size:10px" >0</text>
+<text x="210" y="925" style="text-anchor:middle;font-size:10px" >5</text>
+<text x="230" y="915" style="text-anchor:middle;font-size:10px" >5</text>
+<text x="250" y="955" style="text-anchor:middle;font-size:10px" >0</text>
+<text x="270" y="925" style="text-anchor:middle;font-size:10px" >4</text>
+<text x="280" y="930" style="text-anchor:middle;font-size:10px" >h</text>
+<line x1="276" y1="920" x2="284" y2="920" style="stroke:#444;stroke-width:1.2" />
+<text x="290" y="925" style="text-anchor:middle;font-size:10px" >5</text>
+<text x="280" y="930" style="text-anchor:middle;font-size:10px" >h</text>
+<line x1="276" y1="920" x2="284" y2="920" style="stroke:#444;stroke-width:1.2" />
+<text x="290" y="925" style="text-anchor:middle;font-size:10px" >5</text>
+<text x="290" y="915" style="text-anchor:middle;font-size:10px" >5</text>
+<text x="310" y="925" style="text-anchor:middle;font-size:10px" >4</text>
+<text x="320" y="930" style="text-anchor:middle;font-size:10px" >s</text>
+<line x1="316" y1="920" x2="324" y2="920" style="stroke:#444;stroke-width:1.2" />
+<text x="330" y="925" style="text-anchor:middle;font-size:10px" >8</text>
+<text x="320" y="930" style="text-anchor:middle;font-size:10px" >s</text>
+<line x1="316" y1="920" x2="324" y2="920" style="stroke:#444;stroke-width:1.2" />
+<text x="330" y="925" style="text-anchor:middle;font-size:10px" >8</text>
+<text x="330" y="915" style="text-anchor:middle;font-size:10px" >10</text>
+<line x1="180" y1="910" x2="180" y2="950" style="stroke:#bbb;stroke-width:1" />
+<text x="340" y="900" >C</text>
+<line x1="340" y1="910" x2="500" y2="910" style="stroke:#bbb;stroke-width:1" />
+<line x1="340" y1="920" x2="500" y2="920" style="stroke:#bbb;stroke-width:1" />
+<line x1="340" y1="930" x2="500" y2="930" style="stroke:#bbb;stroke-width:1" />
+<line x1="340" y1="940" x2="500" y2="940" style="stroke:#bbb;stroke-width:1" />
+<line x1="340" y1="950" x2="500" y2="950" style="stroke:#bbb;stroke-width:1" />
+<text x="350" y="955" style="text-anchor:middle;font-size:10px" >0</text>
+<text x="370" y="925" style="text-anchor:middle;font-size:10px" >8</text>
+<text x="390" y="915" style="text-anchor:middle;font-size:10px" >10</text>
+<text x="410" y="955" style="text-anchor:middle;font-size:10px" >0</text>
+<text x="430" y="915" style="text-anchor:middle;font-size:10px" >7</text>
+<text x="450" y="955" style="text-anchor:middle;font-size:10px" >0</text>
+<text x="470" y="925" style="text-anchor:middle;font-size:10px" >5</text>
+<text x="490" y="915" style="text-anchor:middle;font-size:10px" >7</text>
+<line x1="340" y1="910" x2="340" y2="950" style="stroke:#bbb;stroke-width:1" />
+<text x="500" y="900" >C</text>
+<line x1="500" y1="910" x2="660" y2="910" style="stroke:#bbb;stroke-width:1" />
+<line x1="500" y1="920" x2="660" y2="920" style="stroke:#bbb;stroke-width:1" />
+<line x1="500" y1="930" x2="660" y2="930" style="stroke:#bbb;stroke-width:1" />
+<line x1="500" y1="940" x2="660" y2="940" style="stroke:#bbb;stroke-width:1" />
+<line x1="500" y1="950" x2="660" y2="950" style="stroke:#bbb;stroke-width:1" />
+<text x="510" y="955" style="text-anchor:middle;font-size:10px" >0</text>
+<text x="530" y="925" style="text-anchor:middle;font-size:10px" >5</text>
+<text x="550" y="915" style="text-anchor:middle;font-size:10px" >7</text>
+<text x="570" y="955" style="text-anchor:middle;font-size:10px" >0</text>
+<text x="590" y="915" style="text-anchor:middle;font-size:10px" >5</text>
+<text x="610" y="925" style="text-anchor:middle;font-size:10px" >4</text>
+<text x="620" y="930" style="text-anchor:middle;font-size:10px" >s</text>
+<line x1="616" y1="920" x2="624" y2="920" style="stroke:#444;stroke-width:1.2" />
+<text x="630" y="925" style="text-anchor:middle;font-size:10px" >5</text>
+<text x="620" y="930" style="text-anchor:middle;font-size:10px" >s</text>
+<line x1="616" y1="920" x2="624" y2="920" style="stroke:#444;stroke-width:1.2" />
+<text x="630" y="925" style="text-anchor:middle;font-size:10px" >5</text>
+<text x="630" y="955" style="text-anchor:middle;font-size:10px" >0</text>
+<text x="650" y="915" style="text-anchor:middle;font-size:10px" >5</text>
+<line x1="500" y1="910" x2="500" y2="950" style="stroke:#bbb;stroke-width:1" />
+<line x1="660" y1="910" x2="660" y2="950" style="stroke:#bbb;stroke-width:1" />
+<text x="20" y="970" >Dmネタ ↓の和音で音階ロール</text>
 <line x1="20" y1="980" x2="180" y2="980" style="stroke:#bbb;stroke-width:1" />
 <line x1="20" y1="990" x2="180" y2="990" style="stroke:#bbb;stroke-width:1" />
 <line x1="20" y1="1000" x2="180" y2="1000" style="stroke:#bbb;stroke-width:1" />
 <line x1="20" y1="1010" x2="180" y2="1010" style="stroke:#bbb;stroke-width:1" />
 <line x1="20" y1="1020" x2="180" y2="1020" style="stroke:#bbb;stroke-width:1" />
-<text x="30" y="1015" style="text-anchor:middle;font-size:10px" >0</text>
+<text x="30" y="985" style="text-anchor:middle;font-size:10px" >17</text>
+<text x="30" y="995" style="text-anchor:middle;font-size:10px" >15</text>
+<text x="30" y="1025" style="text-anchor:middle;font-size:10px" >14</text>
 <line x1="20" y1="980" x2="20" y2="1020" style="stroke:#bbb;stroke-width:1" />
-<text x="180" y="970" >Dm/C#</text>
-<line x1="180" y1="980" x2="340" y2="980" style="stroke:#bbb;stroke-width:1" />
-<line x1="180" y1="990" x2="340" y2="990" style="stroke:#bbb;stroke-width:1" />
-<line x1="180" y1="1000" x2="340" y2="1000" style="stroke:#bbb;stroke-width:1" />
-<line x1="180" y1="1010" x2="340" y2="1010" style="stroke:#bbb;stroke-width:1" />
-<line x1="180" y1="1020" x2="340" y2="1020" style="stroke:#bbb;stroke-width:1" />
-<text x="190" y="1015" style="text-anchor:middle;font-size:10px" >3</text>
-<line x1="180" y1="980" x2="180" y2="1020" style="stroke:#bbb;stroke-width:1" />
-<text x="340" y="970" >Dm/C</text>
-<line x1="340" y1="980" x2="500" y2="980" style="stroke:#bbb;stroke-width:1" />
-<line x1="340" y1="990" x2="500" y2="990" style="stroke:#bbb;stroke-width:1" />
-<line x1="340" y1="1000" x2="500" y2="1000" style="stroke:#bbb;stroke-width:1" />
-<line x1="340" y1="1010" x2="500" y2="1010" style="stroke:#bbb;stroke-width:1" />
-<line x1="340" y1="1020" x2="500" y2="1020" style="stroke:#bbb;stroke-width:1" />
-<text x="350" y="1015" style="text-anchor:middle;font-size:10px" >0</text>
-<text x="370" y="1015" style="text-anchor:middle;font-size:10px" >2</text>
-<text x="390" y="1015" style="text-anchor:middle;font-size:10px" >3</text>
-<text x="410" y="1015" style="text-anchor:middle;font-size:10px" >5</text>
-<text x="430" y="1015" style="text-anchor:middle;font-size:10px" >3</text>
-<text x="450" y="1015" style="text-anchor:middle;font-size:10px" >2</text>
-<text x="470" y="1015" style="text-anchor:middle;font-size:10px" >0</text>
-<text x="490" y="1015" style="text-anchor:middle;font-size:10px" >2</text>
-<line x1="340" y1="980" x2="340" y2="1020" style="stroke:#bbb;stroke-width:1" />
-<text x="500" y="970" >Dm/B</text>
-<line x1="500" y1="980" x2="660" y2="980" style="stroke:#bbb;stroke-width:1" />
-<line x1="500" y1="990" x2="660" y2="990" style="stroke:#bbb;stroke-width:1" />
-<line x1="500" y1="1000" x2="660" y2="1000" style="stroke:#bbb;stroke-width:1" />
-<line x1="500" y1="1010" x2="660" y2="1010" style="stroke:#bbb;stroke-width:1" />
-<line x1="500" y1="1020" x2="660" y2="1020" style="stroke:#bbb;stroke-width:1" />
-<text x="510" y="1015" style="text-anchor:middle;font-size:10px" >3</text>
-<text x="530" y="1015" style="text-anchor:middle;font-size:10px" >5</text>
-<text x="550" y="1015" style="text-anchor:middle;font-size:10px" >3</text>
-<text x="570" y="1015" style="text-anchor:middle;font-size:10px" >2</text>
-<text x="590" y="1015" style="text-anchor:middle;font-size:10px" >0</text>
-<text x="610" y="1015" style="text-anchor:middle;font-size:10px" >2</text>
-<text x="630" y="1005" style="text-anchor:middle;font-size:10px" >x</text>
-<text x="650" y="1005" style="text-anchor:middle;font-size:10px" >x</text>
-<line x1="500" y1="980" x2="500" y2="1020" style="stroke:#bbb;stroke-width:1" />
 <text x="20" y="1040" >Dm</text>
 <line x1="20" y1="1050" x2="180" y2="1050" style="stroke:#bbb;stroke-width:1" />
 <line x1="20" y1="1060" x2="180" y2="1060" style="stroke:#bbb;stroke-width:1" />
@@ -985,40 +1023,86 @@
 <line x1="20" y1="1080" x2="180" y2="1080" style="stroke:#bbb;stroke-width:1" />
 <line x1="20" y1="1090" x2="180" y2="1090" style="stroke:#bbb;stroke-width:1" />
 <text x="30" y="1085" style="text-anchor:middle;font-size:10px" >0</text>
-<text x="50" y="1085" style="text-anchor:middle;font-size:10px" >2</text>
-<text x="70" y="1085" style="text-anchor:middle;font-size:10px" >3</text>
-<text x="90" y="1075" style="text-anchor:middle;font-size:10px" >0</text>
-<text x="110" y="1075" style="text-anchor:middle;font-size:10px" >2</text>
-<text x="130" y="1075" style="text-anchor:middle;font-size:10px" >0</text>
-<text x="150" y="1075" style="text-anchor:middle;font-size:10px" >2</text>
-<text x="170" y="1075" style="text-anchor:middle;font-size:10px" >4</text>
-<text x="180" y="1080" style="text-anchor:middle;font-size:10px" >s</text>
-<line x1="176" y1="1070" x2="184" y2="1070" style="stroke:#444;stroke-width:1.2" />
-<text x="190" y="1075" style="text-anchor:middle;font-size:10px" >5</text>
-<text x="180" y="1080" style="text-anchor:middle;font-size:10px" >s</text>
-<line x1="176" y1="1070" x2="184" y2="1070" style="stroke:#444;stroke-width:1.2" />
-<text x="190" y="1075" style="text-anchor:middle;font-size:10px" >5</text>
 <line x1="20" y1="1050" x2="20" y2="1090" style="stroke:#bbb;stroke-width:1" />
-<text x="180" y="1040" >G</text>
+<text x="180" y="1040" >Dm/C#</text>
 <line x1="180" y1="1050" x2="340" y2="1050" style="stroke:#bbb;stroke-width:1" />
 <line x1="180" y1="1060" x2="340" y2="1060" style="stroke:#bbb;stroke-width:1" />
 <line x1="180" y1="1070" x2="340" y2="1070" style="stroke:#bbb;stroke-width:1" />
 <line x1="180" y1="1080" x2="340" y2="1080" style="stroke:#bbb;stroke-width:1" />
 <line x1="180" y1="1090" x2="340" y2="1090" style="stroke:#bbb;stroke-width:1" />
-<text x="0" y="0" style="text-anchor:middle;font-size:10px" ></text>
-<text x="210" y="1075" style="text-anchor:middle;font-size:10px" >4</text>
-<text x="230" y="1075" style="text-anchor:middle;font-size:10px" >5</text>
-<text x="250" y="1065" style="text-anchor:middle;font-size:10px" >4</text>
-<text x="260" y="1070" style="text-anchor:middle;font-size:10px" >s</text>
-<line x1="256" y1="1060" x2="264" y2="1060" style="stroke:#444;stroke-width:1.2" />
-<text x="270" y="1065" style="text-anchor:middle;font-size:10px" >5</text>
-<text x="260" y="1070" style="text-anchor:middle;font-size:10px" >s</text>
-<line x1="256" y1="1060" x2="264" y2="1060" style="stroke:#444;stroke-width:1.2" />
-<text x="270" y="1065" style="text-anchor:middle;font-size:10px" >5</text>
-<text x="270" y="1055" style="text-anchor:middle;font-size:10px" >0</text>
-<text x="290" y="1075" style="text-anchor:middle;font-size:10px" >5</text>
-<text x="310" y="1065" style="text-anchor:middle;font-size:10px" >0</text>
-<text x="330" y="1075" style="text-anchor:middle;font-size:10px" >x</text>
+<text x="190" y="1085" style="text-anchor:middle;font-size:10px" >3</text>
 <line x1="180" y1="1050" x2="180" y2="1090" style="stroke:#bbb;stroke-width:1" />
+<text x="340" y="1040" >Dm/C</text>
+<line x1="340" y1="1050" x2="500" y2="1050" style="stroke:#bbb;stroke-width:1" />
+<line x1="340" y1="1060" x2="500" y2="1060" style="stroke:#bbb;stroke-width:1" />
+<line x1="340" y1="1070" x2="500" y2="1070" style="stroke:#bbb;stroke-width:1" />
+<line x1="340" y1="1080" x2="500" y2="1080" style="stroke:#bbb;stroke-width:1" />
+<line x1="340" y1="1090" x2="500" y2="1090" style="stroke:#bbb;stroke-width:1" />
+<text x="350" y="1085" style="text-anchor:middle;font-size:10px" >0</text>
+<text x="370" y="1085" style="text-anchor:middle;font-size:10px" >2</text>
+<text x="390" y="1085" style="text-anchor:middle;font-size:10px" >3</text>
+<text x="410" y="1085" style="text-anchor:middle;font-size:10px" >5</text>
+<text x="430" y="1085" style="text-anchor:middle;font-size:10px" >3</text>
+<text x="450" y="1085" style="text-anchor:middle;font-size:10px" >2</text>
+<text x="470" y="1085" style="text-anchor:middle;font-size:10px" >0</text>
+<text x="490" y="1085" style="text-anchor:middle;font-size:10px" >2</text>
 <line x1="340" y1="1050" x2="340" y2="1090" style="stroke:#bbb;stroke-width:1" />
+<text x="500" y="1040" >Dm/B</text>
+<line x1="500" y1="1050" x2="660" y2="1050" style="stroke:#bbb;stroke-width:1" />
+<line x1="500" y1="1060" x2="660" y2="1060" style="stroke:#bbb;stroke-width:1" />
+<line x1="500" y1="1070" x2="660" y2="1070" style="stroke:#bbb;stroke-width:1" />
+<line x1="500" y1="1080" x2="660" y2="1080" style="stroke:#bbb;stroke-width:1" />
+<line x1="500" y1="1090" x2="660" y2="1090" style="stroke:#bbb;stroke-width:1" />
+<text x="510" y="1085" style="text-anchor:middle;font-size:10px" >3</text>
+<text x="530" y="1085" style="text-anchor:middle;font-size:10px" >5</text>
+<text x="550" y="1085" style="text-anchor:middle;font-size:10px" >3</text>
+<text x="570" y="1085" style="text-anchor:middle;font-size:10px" >2</text>
+<text x="590" y="1085" style="text-anchor:middle;font-size:10px" >0</text>
+<text x="610" y="1085" style="text-anchor:middle;font-size:10px" >2</text>
+<text x="630" y="1075" style="text-anchor:middle;font-size:10px" >x</text>
+<text x="650" y="1075" style="text-anchor:middle;font-size:10px" >x</text>
+<line x1="500" y1="1050" x2="500" y2="1090" style="stroke:#bbb;stroke-width:1" />
+<text x="20" y="1110" >Dm</text>
+<line x1="20" y1="1120" x2="180" y2="1120" style="stroke:#bbb;stroke-width:1" />
+<line x1="20" y1="1130" x2="180" y2="1130" style="stroke:#bbb;stroke-width:1" />
+<line x1="20" y1="1140" x2="180" y2="1140" style="stroke:#bbb;stroke-width:1" />
+<line x1="20" y1="1150" x2="180" y2="1150" style="stroke:#bbb;stroke-width:1" />
+<line x1="20" y1="1160" x2="180" y2="1160" style="stroke:#bbb;stroke-width:1" />
+<text x="30" y="1155" style="text-anchor:middle;font-size:10px" >0</text>
+<text x="50" y="1155" style="text-anchor:middle;font-size:10px" >2</text>
+<text x="70" y="1155" style="text-anchor:middle;font-size:10px" >3</text>
+<text x="90" y="1145" style="text-anchor:middle;font-size:10px" >0</text>
+<text x="110" y="1145" style="text-anchor:middle;font-size:10px" >2</text>
+<text x="130" y="1145" style="text-anchor:middle;font-size:10px" >0</text>
+<text x="150" y="1145" style="text-anchor:middle;font-size:10px" >2</text>
+<text x="170" y="1145" style="text-anchor:middle;font-size:10px" >4</text>
+<text x="180" y="1150" style="text-anchor:middle;font-size:10px" >s</text>
+<line x1="176" y1="1140" x2="184" y2="1140" style="stroke:#444;stroke-width:1.2" />
+<text x="190" y="1145" style="text-anchor:middle;font-size:10px" >5</text>
+<text x="180" y="1150" style="text-anchor:middle;font-size:10px" >s</text>
+<line x1="176" y1="1140" x2="184" y2="1140" style="stroke:#444;stroke-width:1.2" />
+<text x="190" y="1145" style="text-anchor:middle;font-size:10px" >5</text>
+<line x1="20" y1="1120" x2="20" y2="1160" style="stroke:#bbb;stroke-width:1" />
+<text x="180" y="1110" >G</text>
+<line x1="180" y1="1120" x2="340" y2="1120" style="stroke:#bbb;stroke-width:1" />
+<line x1="180" y1="1130" x2="340" y2="1130" style="stroke:#bbb;stroke-width:1" />
+<line x1="180" y1="1140" x2="340" y2="1140" style="stroke:#bbb;stroke-width:1" />
+<line x1="180" y1="1150" x2="340" y2="1150" style="stroke:#bbb;stroke-width:1" />
+<line x1="180" y1="1160" x2="340" y2="1160" style="stroke:#bbb;stroke-width:1" />
+<text x="0" y="0" style="text-anchor:middle;font-size:10px" ></text>
+<text x="210" y="1145" style="text-anchor:middle;font-size:10px" >4</text>
+<text x="230" y="1145" style="text-anchor:middle;font-size:10px" >5</text>
+<text x="250" y="1135" style="text-anchor:middle;font-size:10px" >4</text>
+<text x="260" y="1140" style="text-anchor:middle;font-size:10px" >s</text>
+<line x1="256" y1="1130" x2="264" y2="1130" style="stroke:#444;stroke-width:1.2" />
+<text x="270" y="1135" style="text-anchor:middle;font-size:10px" >5</text>
+<text x="260" y="1140" style="text-anchor:middle;font-size:10px" >s</text>
+<line x1="256" y1="1130" x2="264" y2="1130" style="stroke:#444;stroke-width:1.2" />
+<text x="270" y="1135" style="text-anchor:middle;font-size:10px" >5</text>
+<text x="270" y="1125" style="text-anchor:middle;font-size:10px" >0</text>
+<text x="290" y="1145" style="text-anchor:middle;font-size:10px" >5</text>
+<text x="310" y="1135" style="text-anchor:middle;font-size:10px" >0</text>
+<text x="330" y="1145" style="text-anchor:middle;font-size:10px" >x</text>
+<line x1="180" y1="1120" x2="180" y2="1160" style="stroke:#bbb;stroke-width:1" />
+<line x1="340" y1="1120" x2="340" y2="1160" style="stroke:#bbb;stroke-width:1" />
 </svg>
