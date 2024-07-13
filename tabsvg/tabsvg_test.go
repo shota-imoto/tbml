@@ -23,7 +23,7 @@ func TestTabsvg(t *testing.T) {
 	c.Start(width, height)
 	defer c.End()
 
-	p := tabsvg.NewPage(tabsvg.Cordinate{X: 20, Y: 20}, 30, tabsvg.NoteWidth(30))
+	p := tabsvg.NewPage(tabsvg.Cordinate{X: 20, Y: 20}, 30, tabsvg.NoteWidth(30), tabsvg.PageSize{Width: 300, Height: 400})
 	h := p.SetHeader("タイトル", "G", 100)
 	h.Draw(c)
 	s := p.SetScore(20)

@@ -18,8 +18,6 @@ func main() {
 	}
 
 	out_path := a.OutPath()
-	width := 1000
-	height := 1000
 
 	file, err := os.Create(out_path)
 	if err != nil {
@@ -29,15 +27,16 @@ func main() {
 	defer file.Close()
 	c := svg.New(file)
 
-	c.Start(width, height)
-	defer c.End()
-
 	cfg := parse.ParseConfig(a.YamlPath)
 	p, err := cfg.Build()
 
 	if err != nil {
 		panic(err)
 	}
+
+	c.Start(p.PageSize())
+	defer c.End()
+
 	p.Header.Draw(c)
 	for _, l := range p.Score.Lines {
 		for _, m := range l.Measures {
