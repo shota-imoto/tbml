@@ -1,7 +1,7 @@
 header:
   title: The Only Living Boy in New York
   key: C
-  # bpm: 92
+  bpm: 74
 general:
   note_width: 20
 score:

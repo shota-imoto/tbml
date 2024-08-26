@@ -1,0 +1,397 @@
+header:
+  title: You've Got a Friend in Me(D form)
+  key: C
+  bpm: 122
+general:
+  note_width: 20
+  width: 1000
+  height: 1700
+score:
+  cordinate: 20,20
+  gap: 20
+  lines:
+    - strings: 5
+      with_text: true
+      measures:
+        - beat: 6
+          text: D intro
+          borders:
+            - start
+          fingering:
+            - 0.4
+            - x.3
+            - 12s16.4
+            - x.x
+            - 14.3
+            - 15.2
+        - beat: 6
+          text: F#7
+          borders:
+            - start
+          fingering:
+            - 14.1/14.2
+            - x.x
+            - 16.1/14.2
+            - 15s10.3
+            - x.x
+            - 12.1/12.2
+        - beat: 6
+          text: Bm
+          borders:
+            - start
+          fingering:
+            - 11s7.3
+            - x.x
+            - 9.1/7.2
+            - 7s15.3
+            - x.x
+            - 15.1/15.2
+        - beat: 6
+          text: A#7
+          borders:
+            - start
+            - end
+          fingering:
+            - (15s14).3
+            - x.x
+            - 14.1/14.2
+            - 15s14.3
+            - x.x
+            - 12.1/10.2
+    - strings: 5
+      with_text: true
+      measures:
+        - beat: 6
+          text: D
+          borders:
+            - start
+          fingering:
+            - 11s7.3
+            - x.x
+            - 7.2
+            - 7.1
+            - x.3
+            - 7.3
+        - beat: 6
+          text: A
+          borders:
+            - start
+          fingering:
+            - 5.1/5.2
+            - x.3
+            - 7s.2
+            - x.x
+            - x.3
+            - 12.1/10.2
+        - beat: 6
+          text: D
+          borders:
+            - start
+          fingering:
+            - 11.3
+            - x.3
+            - 10.2
+            - 12.1
+            - x.3
+            - 11s6.3
+        - beat: 6
+          text: Aaug
+          borders:
+            - start
+            - end
+          fingering:
+            - 7.1/6.2/6.3 3
+            - x.3 3
+    - strings: 5
+      with_text: true
+      measures:
+        - beat: 6
+          text: D9
+          borders:
+            - start
+          fingering:
+            - 4.1/0.2
+        - beat: 6
+          text: Aaug
+          borders:
+            - start
+          fingering:
+            - 4.1/0.2
+# A part
+    - strings: 5
+      with_text: true
+      measures:
+        - beat: 6
+          text: D A part
+          borders:
+            - start
+          fingering:
+            - 0.4
+            - x.3
+            - 3s7.2
+            - 7.1
+            - x.3
+            - 7.2
+        - beat: 6
+          text: Aaug
+          borders:
+            - start
+          fingering:
+            - 9.1
+            - x.3
+            - 5.0
+            - 7.1/6.2
+            - x.3
+            - 4.1/3.2
+        - beat: 6
+          text: D
+          borders:
+            - start
+          fingering:
+            - x.3
+            - x.3
+            - 2.3
+            - 4.1/3.2
+            - 2.3
+            - 4.1/3.2
+        - beat: 6
+          text: D7
+          borders:
+            - start
+          fingering:
+            - 2s5.2
+            - 7.1/7.2
+            - 5.2
+            - 7.1/7.2
+            - 5.2
+            - 7.1/7.2
+    - strings: 5
+      with_text: true
+      measures:
+        - beat: 6
+          text: G
+          borders:
+            - start
+          fingering:
+            - 5s12.3
+            - x.x
+            - 12.2
+            - 12.1
+            - x.3
+            - 12.2
+        - beat: 6
+          text: G#dim7
+          borders:
+            - start
+          fingering:
+            - 14.1
+            - x.3
+            - 13.3
+            - 12.1/12.2
+            - x.3
+            - 7.1/7.2
+        - beat: 6
+          text: D
+          borders:
+            - start
+          fingering:
+            - x.3
+            - x.3
+            - 7.3
+            - 7.1/7.2
+            - 7.3
+            - 7.1/7.2
+        - beat: 6
+          text: D7
+          borders:
+            - start
+          fingering:
+            - 5.3
+            - 7.1/7.2
+            - 5.3
+            - 7.1/7.2
+            - 5.3
+            - 7.1/7.2
+    - strings: 5
+      with_text: true
+      measures:
+        - beat: 6
+          text: G
+          borders:
+            - start
+          fingering:
+            - 5s7.3
+            - x.3
+            - 8.3
+            - 9.1/7.3
+            - x.3
+            - 8.3
+
+        - beat: 6
+          text: D
+          borders:
+            - start
+          fingering:
+            - 7.1
+            - x.3
+            - 7.2
+            - 7s9.3
+            - x.3
+            - 11.2
+        - beat: 6
+          text: F#7
+          borders:
+            - start
+          fingering:
+            - 11.1/9.3
+            - x.3
+            - 11.1/9.3
+            - x.3
+            - x.3
+            - 9.1/7.2/7.3
+        - beat: 6
+          text: Bm Gに移るところチョークする
+          borders:
+            - start
+          fingering:
+            - x.3
+            - 7.3
+            - 9.1/7.2
+            - 7s11.3
+            - x.x
+            - 12.1/12.2
+
+    - strings: 5
+      with_text: true
+      measures:
+        - beat: 6
+          text: G
+          borders:
+            - start
+          fingering:
+            - x.3
+            - x.3
+            - 12.3
+            - 12.2
+            - x.3
+            - 12.3
+        - beat: 6
+          text: D
+          borders:
+            - start
+          fingering:
+            - 10.2
+            - x.3
+            - 11s2.3
+            - x.3
+            - x.3
+            - 4.1/3.2
+        - beat: 6
+          text: F#7
+          borders:
+            - start
+          fingering:
+            - 4.1/0.2
+        - beat: 6
+          text: Bm
+          borders:
+            - start
+          fingering:
+            - 4.1/0.2
+    - strings: 5
+      with_text: true
+      measures:
+        - beat: 6
+          text: G
+          borders:
+            - start
+          fingering:
+            - 4.1/0.2
+        - beat: 6
+          text: D
+          borders:
+            - start
+          fingering:
+            - 4.1/0.2
+        - beat: 6
+          text: F#7
+          borders:
+            - start
+          fingering:
+            - 4.1/0.2
+        - beat: 6
+          text: Bm Gに移るところチョークする
+          borders:
+            - start
+          fingering:
+            - x.3
+            - 7.3
+            - 9.1/7.2
+            - 7s13.3
+            - x.x
+            - 12.1/12.2
+
+    - strings: 5
+      with_text: true
+      measures:
+        - beat: 6
+          text: E7
+          borders:
+            - start
+          fingering:
+            - x.3
+            - x.3
+            - 13.3
+            - 12.2
+            - x.3
+            - 13s6.3
+        - beat: 6
+          text: A
+          borders:
+            - start
+          fingering:
+            - 7.1
+            - x.3
+            - 7s3.2
+            - 0.5
+            - x.3
+            - 4.1/3.2
+        - beat: 6
+          text: D
+          borders:
+            - start
+          fingering:
+            - 4.1/0.2
+        - beat: 6
+          text: B7
+          borders:
+            - start
+          fingering:
+            - 4.1/0.2
+    - strings: 5
+      with_text: true
+      measures:
+        - beat: 6
+          text: E7
+          borders:
+            - start
+          fingering:
+            - 4.1/0.2
+        - beat: 6
+          text: A
+          borders:
+            - start
+          fingering:
+            - 4.1/0.2
+        - beat: 6
+          text: D
+          borders:
+            - start
+          fingering:
+            - 4.1/0.2
+        - beat: 6
+          text: D イントロと同じ
+          borders:
+            - start
+          fingering:
+            - 0.1

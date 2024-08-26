@@ -1,0 +1,597 @@
+header:
+  title: Everyday I Write a Book(D form)
+  key: C
+  bpm: 122
+general:
+  note_width: 20
+  width: 1000
+  height: 1700
+score:
+  cordinate: 20,20
+  gap: 20
+  lines:
+# ソロ
+    - strings: 5
+      with_text: true
+      measures:
+        - beat: 8
+          text: E solo kickoff
+          borders:
+            - start
+          fingering:
+            - 0.1
+            - 2.3
+            - 0.4
+            - 2.3
+            - 0.1
+            - 3s8.2
+            - 0.5
+            - 8.2/0.1
+        - beat: 8
+          text: A
+          borders:
+            - start
+            - end
+          fingering:
+            - 0.4
+            - 7.2/0.1
+            - 0.4
+            - 8.2/0.1
+            - 0.4
+            - 10s5.2/0.1
+            - x.3
+            - x.3
+    - strings: 5
+      with_text: true
+      measures:
+        - beat: 8
+          text: C#m(6m) solo
+          borders:
+            - start
+          fingering:
+            - 0.1
+            - 6.3
+            - 0.1
+            - 5.2
+            - 4.1
+            - 5.2
+            - 4.1
+            - 0.0
+        - beat: 12
+          text: C#m(6m) 3連符で
+          borders:
+            - start
+          fingering:
+            - 7.1
+            - 7.2
+            - 0.5
+            - 7s10.2
+            - x.3
+            - 0.5
+            - 12.1
+            - 0.5
+            - 11.3
+            - 10.2
+            - x.3
+            - 0.5
+        - beat: 8
+          text: G#m(3m)
+          borders:
+            - start
+          fingering:
+            - 11.1/10.2 2
+            - 0.5
+            - 10.2
+            - 11.1
+            - 0.5
+            - 10.2
+            - 11.1
+        - beat: 8
+          text: G#m(3m) 最後の音はThumbで
+          borders:
+            - start
+            - end
+          fingering:
+            - 0.5
+            - 10.2
+            - 11.1
+            - 0.5
+            - 14.2
+            - 12.5
+            - 14.1
+            - 14.2
+    - strings: 5
+      with_text: true
+      measures:
+        - beat: 8
+          text: A 最後の音チョーク気味にしたい
+          borders:
+            - start
+          fingering:
+            - 12.1
+            - 14.2
+            - 0.5
+            - 12.1
+            - 14.2
+            - 0.5
+            - 10.2 2
+        - beat: 8
+          text: A
+          borders:
+            - start
+          fingering:
+            - 0.5
+            - 10.2
+            - 0.1
+            - 0.5
+            - 7.2
+            - 0.5
+            - 9.1
+            - 7s10.2 2
+        - beat: 8
+          text: B
+          borders:
+            - start
+          fingering:
+            - x.x
+            - 0.5
+            - 10.2
+            - 11.1
+            - 0.5
+            - 10.2
+            - 11.1
+            - 0.5
+        - beat: 8
+          text: B
+          borders:
+            - start
+            - end
+          fingering:
+            - 10.2
+            - 11.1
+            - 0.5
+            - 10.2
+            - 11.1 2
+            - 11.1/0.5 2
+    - strings: 5
+      with_text: true
+      measures:
+        - beat: 8
+          text: C#m(6m)
+          borders:
+            - start
+          fingering:
+            - 12.1
+            - 12.2
+            - 0.5
+            - 12.2
+            - 14.1
+            - 12.2
+            - 0.5
+            - 12.2
+        - beat: 8
+          text: C#m(6m)
+          borders:
+            - start
+          fingering:
+            - 12.1 2
+            - 16.1/15s12.2
+            - x.x
+            - 0.5
+            - 12.2
+            - 14.1 2
+        - beat: 8
+          text: G#m(3m)
+          borders:
+            - start
+          fingering:
+            - 17.1/15.2 2
+            - 0.5
+            - 15.2
+            - 16.1 2
+            - 19.1/17.2 2
+        - beat: 8
+          text: B
+          borders:
+            - start
+            - end
+          fingering:
+            - 0.5
+            - 17.2
+            - 19.1
+            - 0.5
+            - 17.2
+            - 19.1
+            - 0.5
+            - 19.1
+    - strings: 5
+      with_text: true
+      measures:
+        - beat: 8
+          text: A
+          borders:
+            - start
+          fingering:
+            - x.3
+            - 19p17.1
+            - x.x
+            - 0.5
+            - 12.1
+            - x.3
+            - 0.5
+            - 12.1
+        - beat: 8
+          text: A
+          borders:
+            - start
+          fingering:
+            - x.3
+            - 12.1
+            - 14.1
+            - 0.5
+            - 7.2
+            - 0.5
+            - 9.1
+            - 7.2
+        - beat: 8
+          text: B
+          borders:
+            - start
+          fingering:
+            - 0.5 2
+            - 0.5
+            - 5.1
+            - 7.2
+            - 0.5
+            - 5.1
+            - 7.2
+        - beat: 8
+          text: B
+          borders:
+            - start
+            - end
+          fingering:
+            - 5.1
+            - 7.2
+            - 5.2
+            - 0.1
+            - 6.3
+            - 5.2
+            - 0.1
+            - 6.3
+    - strings: 5
+      with_text: true
+      measures:
+        - beat: 8
+          text: C#m(6m)
+          borders:
+            - start
+            - end
+          fingering:
+            - 0.1 2
+            - x.3 2
+            - 4.1/3.2 2
+            - x.3 2
+
+# アウトロ
+    - strings: 5
+      with_text: true
+      measures:
+        - beat: 8
+          text: E 2beat
+          borders:
+            - start
+          fingering:
+            - 3s10.2
+            - 12.1
+            - 0.5
+            - 10.2
+            - 12.1
+            - 0.5
+            - 10.2
+            - 12.1
+        - beat: 8
+          text: E
+          borders:
+            - start
+          fingering:
+            - 0.5
+            - 10.2
+            - 12.1
+            - 0.5
+            - 11.1 2
+            - 7.1/0.5 2
+        - beat: 8
+          text: A
+          borders:
+            - start
+          fingering:
+            - 9.1/8.2
+        - beat: 8
+          text: B
+          borders:
+            - start
+          fingering:
+            - 5.1
+    - strings: 5
+      with_text: true
+      measures:
+        - beat: 8
+          text: E
+          borders:
+            - start
+          fingering:
+            - 5.1
+        - beat: 8
+          text: E
+          borders:
+            - start
+          fingering:
+            - 5.1
+        - beat: 8
+          text: A
+          borders:
+            - start
+          fingering:
+            - 5.1
+        - beat: 8
+          text: B
+          borders:
+            - start
+          fingering:
+            - 5.1
+    - strings: 5
+      with_text: true
+      measures:
+        - beat: 8
+          text: E
+          borders:
+            - start
+          fingering:
+            - 5.1
+        - beat: 8
+          text: E
+          borders:
+            - start
+          fingering:
+            - 5.1
+        - beat: 8
+          text: A
+          borders:
+            - start
+          fingering:
+            - 5.1
+        - beat: 8
+          text: B
+          borders:
+            - start
+          fingering:
+            - 5.1
+# outro
+    - strings: 5
+      with_text: true
+      measures:
+        - beat: 8
+          text: E 2beat
+          borders:
+            - start
+          fingering:
+            - 3s10.2
+            - 12.1
+            - 0.5
+            - 10.2
+            - 12.1
+            - 0.5
+            - 10.2
+            - 12.1
+        - beat: 8
+          text: E
+          borders:
+            - start
+          fingering:
+            - 0.5
+            - 10.2
+            - 12.1
+            - 0.5
+            - 11.1 2
+            - 10.2/0.5 2
+        - beat: 8
+          text: A
+          borders:
+            - start
+          fingering:
+            - 9.1/8.2 2
+            - 0.5
+            - 8.2
+            - 9.1
+            - 0.5
+            - 8.2
+            - 9.1
+        - beat: 8
+          text: B
+          borders:
+            - start
+            - end
+          fingering:
+            - 0.5
+            - 8.2
+            - 9.1
+            - 0.5
+            - 9.1/8.2 2
+            - 11.1/10.2 2
+    - strings: 5
+      with_text: true
+      measures:
+        - beat: 8
+          text: E
+          borders:
+            - start
+          fingering:
+            - 12.1/10.2
+            - 0.5
+            - 10.2
+            - 12.1
+            - 0.5
+            - 10.2
+            - 14.1
+        - beat: 8
+          text: E
+          borders:
+            - start
+          fingering:
+            - 0.5
+            - 10.2
+            - 14.1
+            - 0.5
+            - 11.1 2
+            - 10.2/0.5 2
+        - beat: 8
+          text: A
+          borders:
+            - start
+          fingering:
+            - 9.1/8.2 2
+            - 0.5
+            - 8.2
+            - 9.1
+            - 8s2.2
+            - 0.5
+            - 2.2
+        - beat: 8
+          text: B
+          borders:
+            - start
+            - end
+          fingering:
+            - 2.1
+            - 0.5
+            - 2.2
+            - 2.1
+            - 0.5
+            - 2.3
+            - 2s3.4
+            - 0.1
+    - strings: 5
+      with_text: true
+      measures:
+        - beat: 8
+          text: E
+          borders:
+            - start
+          fingering:
+            - 0.5
+            - 2.3
+            - 4.4
+            - 3.4
+            - 2.4
+            - 0.4
+            - 0.5
+            - 2.3
+        - beat: 8
+          text: E
+          borders:
+            - start
+          fingering:
+            - 4.4
+            - 3.4
+            - 2.4
+            - 0.4
+            - 0.5
+            - 2.3
+            - 4.4
+            - 3.4
+
+        - beat: 8
+          text: A
+          borders:
+            - start
+          fingering:
+            - 2.4
+            - 0.4
+            - 2.4
+            - 4.4
+            - 0.5
+            - 0.3
+            - 0.5
+            - 2.3
+        - beat: 8
+          text: B
+          borders:
+            - start
+            - end
+          fingering:
+            - 0.5
+            - 3.3
+            - 0.5
+            - 4.3
+            - 0.5
+            - 1.2
+            - 2.2
+            - 0.1
+
+    - strings: 5
+      with_text: true
+      measures:
+        - beat: 8
+          text: E
+          borders:
+            - start
+          fingering:
+            - 2h3.2
+            - 0.1
+            - 0.5
+            - 3.2
+            - 0.1
+            - 0.5
+            - 2h3.2
+            - 0.1
+        - beat: 8
+          text: E
+          borders:
+            - start
+          fingering:
+            - 0.5
+            - 3.2
+            - 0.1
+            - 0.5
+            - 3s7.2
+            - 7.1
+            - 0.5
+            - 4.3
+        - beat: 8
+          text: A
+          borders:
+            - start
+          fingering:
+            - 5.1
+            - 0.5
+            - 4.3
+            - 5.1
+            - 0.5
+            - 4.3
+            - 5.1
+            - 0.5
+        - beat: 8
+          text: B
+          borders:
+            - start
+            - end
+          fingering:
+            - 2.1
+            - 0.5
+            - 2.2
+            - 4.1
+            - 0.5
+            - 2.2
+            - 2.1
+            - 0.5
+    - strings: 5
+      with_text: true
+      measures:
+        - beat: 8
+          text: E
+          borders:
+            - start
+            - end
+          fingering:
+            - 2.3/0.1
